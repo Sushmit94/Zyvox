@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 214 56% 98%;
+    --foreground: 219 58% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 219 58% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 219 58% 18%;
+
+    --primary: 219 73% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 43% 94%;
+    --secondary-foreground: 219 58% 18%;
+
+    --muted: 210 36% 95%;
+    --muted-foreground: 218 24% 40%;
+
+    --accent: 42 36% 56%;
+    --accent-foreground: 219 73% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 86%;
+    --input: 214 25% 86%;
+    --ring: 42 36% 56%;
+
+    --radius: 0.75rem;
+
+    --brand-navy: 219 73% 18%;
+    --brand-navy-soft: 218 57% 26%;
+    --brand-gold: 42 36% 56%;
+    --brand-gold-soft: 44 31% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(130deg, hsl(var(--brand-navy)), hsl(var(--brand-gold)));
+  }
+
+  .bg-brand-surface {
+    background-image:
+      radial-gradient(circle at 15% 10%, hsl(var(--brand-gold) / 0.18), transparent 45%),
+      radial-gradient(circle at 85% 15%, hsl(var(--brand-navy-soft) / 0.18), transparent 42%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  h1 {
+    line-height: 1.1;
+  }
+
+  h2,
+  h3 {
+    line-height: 1.18;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-fade-in-delay-1 { transition-delay: 0.1s; }
+.scroll-fade-in-delay-2 { transition-delay: 0.2s; }
+.scroll-fade-in-delay-3 { transition-delay: 0.3s; }
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px -12px hsl(var(--brand-navy) / 0.28);
+}
+
+.btn-pop {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.btn-pop:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px -14px hsl(var(--brand-navy) / 0.6);
+}
+.btn-pop:active {
+  transform: scale(0.97);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: hsl(var(--brand-gold));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.interactive-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  border-color: hsl(var(--brand-gold-soft));
+  box-shadow: 0 20px 35px -24px hsl(var(--brand-navy) / 0.5);
+}
+
+.animate-rise {
+  animation: fade-rise 0.65s ease forwards;
+}
+
+.animate-float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
