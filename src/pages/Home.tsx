@@ -121,7 +121,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container pb-14 sm:pb-16 md:pb-24">
+      <section id="testimonials" className="container pb-14 sm:pb-16 md:pb-24">
         <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Client Confidence</p>
           <h2 className="mt-2 text-2xl font-bold text-brand-navy sm:text-3xl">Trusted by growth-focused leadership teams</h2>
