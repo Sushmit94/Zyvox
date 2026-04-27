@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import SiteShell from "./components/SiteShell.tsx";
 import Home from "./pages/Home.tsx";
 import Services from "./pages/Services.tsx";
-import Pricing from "./pages/Pricing.tsx";
 import Industries from "./pages/Industries.tsx";
 import About from "./pages/About.tsx";
 import Founders from "./pages/Founders.tsx";
@@ -26,7 +25,6 @@ const App = () => (
           <Route element={<SiteShell />}>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/about" element={<About />} />
             <Route path="/founders" element={<Founders />} />

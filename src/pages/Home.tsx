@@ -64,9 +64,6 @@ const Home = () => {
             <Link to="/contact" className="btn-pop inline-flex items-center justify-center rounded-lg bg-brand-navy px-6 py-3 text-sm font-semibold text-primary-foreground">
               Book Consultation <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link to="/pricing" className="btn-pop inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground">
-              View Pricing
-            </Link>
           </div>
         </div>
 

@@ -84,7 +84,7 @@ const SiteShell = () => {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-navy">Contact</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-navy">Reach Us</h3>
             <div className="mt-4 inline-flex items-center gap-4 rounded-md bg-brand-navy px-4 py-3 text-primary-foreground">
               <a
                 href="https://www.linkedin.com/company/zyvox-ai/"

@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
 type ContactPayload = {
   name: string;
@@ -17,14 +16,6 @@ const initialPayload: ContactPayload = {
   phone: "",
   message: "",
 };
-
-const socialLinks = [
-  { label: "Instagram", icon: Instagram, href: "#" },
-  { label: "Facebook", icon: Facebook, href: "#" },
-  { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/zyvox-ai/" },
-  { label: "YouTube", icon: Youtube, href: "#" },
-  { label: "X", icon: Twitter, href: "#" },
-];
 
 const Contact = () => {
   usePageMeta({
@@ -81,23 +72,6 @@ const Contact = () => {
             <a href="https://www.linkedin.com/company/zyvox-ai/" target="_blank" rel="noreferrer" className="block rounded-lg bg-secondary px-4 py-3 hover:text-foreground">
               LinkedIn: zyvox-ai
             </a>
-          </div>
-          <div className="mt-4 rounded-lg bg-secondary px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-navy">Social platforms</p>
-            <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href === "#" ? undefined : "_blank"}
-                  rel={social.href === "#" ? undefined : "noreferrer"}
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                >
-                  <social.icon className="h-4 w-4" />
-                  {social.label}
-                </a>
-              ))}
-            </div>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
             Typical response time is within one business day.
