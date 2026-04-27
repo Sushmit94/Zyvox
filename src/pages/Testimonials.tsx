@@ -6,42 +6,42 @@ const testimonials = [
     role: "Product Manager",
     initials: "AP",
     quote:
-      "I've worked with many people, but Yashica stands out. Her approach is clear, precise, and always focused on delivering real value.",
+      "I've worked with many vendors, but this team stands out. Their approach is clear, precise, and always focused on delivering real value.",
   },
   {
     name: "Alfa Peterson",
     role: "Operations Lead",
     initials: "AP",
     quote:
-      "The process was very hands-off, yet the impact was huge. Yashica and her team didn't just automate, we saw growth.",
+      "The process was very hands-off, yet the impact was huge. They didn't just automate workflows, we saw measurable growth.",
   },
   {
     name: "Marco Alvarez",
     role: "CTO",
     initials: "MA",
     quote:
-      "Yashica brought an energy and insight that we needed. The automation implementation was seamless, and the results were immediate. A fantastic experience, highly recommended!!",
+      "The team brought the energy and insight we needed. The automation rollout was seamless, and the results were immediate. Fantastic experience.",
   },
   {
     name: "Terell Harris",
     role: "Head of Operations",
     initials: "TH",
     quote:
-      "The team is exceptional. They really took the time to understand our needs and delivered a system that just works, no hassle.",
+      "The team is exceptional. They took the time to understand our needs and delivered a system that just works without added complexity.",
   },
   {
     name: "Juho Virtanen",
     role: "CEO",
     initials: "JV",
     quote:
-      "Yashica's dedication and expertise are unmatched. She made complex AI solutions easy to understand and implement. A true professional with a hands-on approach.",
+      "Their dedication and expertise are unmatched. They made complex AI solutions easy to understand and implement with a practical, hands-on approach.",
   },
   {
     name: "Kyle Thompson",
     role: "Marketing Director",
     initials: "KT",
     quote:
-      "Yashica and her team worked seamlessly together. They not only automated our operations but also provided constant support and clarity throughout the journey.",
+      "They worked seamlessly across teams. They not only automated our operations but also provided constant support and clarity throughout the journey.",
   },
 ];
 
