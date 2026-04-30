@@ -1,81 +1,298 @@
+import { useEffect, useRef } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BotMessageSquare,
+  CalendarClock,
+  Cog,
+  Linkedin,
+} from "lucide-react";
 
-const focusAreas = [
-  { id: "1", title: "Direct B2B Projects", subtitle: "Business AI implementation" },
-  { id: "2", title: "Agency Partnerships", subtitle: "Collaborative solutions" },
-  { id: "3", title: "AI Education", subtitle: "Training & workshops" },
-  { id: "4", title: "AI Consulting", subtitle: "Strategic advisory" },
+/* ─── Data ─── */
+
+const pillars = [
+  {
+    icon: BotMessageSquare,
+    title: "AI-Powered Communication",
+    description:
+      "Enterprise voice agents, intelligent chatbots, and automated SMS workflows that ensure every customer interaction is handled with precision and speed.",
+    highlights: ["Voice Agents", "Chatbots", "SMS Workflows"],
+  },
+  {
+    icon: CalendarClock,
+    title: "Intelligent Scheduling",
+    description:
+      "Automated job routing and resource-to-job matching systems that eliminate scheduling conflicts and maximize operational throughput.",
+    highlights: ["Job Routing", "Resource Matching", "Calendar Sync"],
+  },
+  {
+    icon: Cog,
+    title: "Operational Automation",
+    description:
+      "Custom CRM integrations and back-office system builds that streamline your entire operational backbone — from lead capture to fulfilment.",
+    highlights: ["CRM Integration", "Back-Office Systems", "Data Pipelines"],
+  },
 ];
 
-const founderPlaceholders = [
-  { id: "01", title: "Founder 1" },
-  { id: "02", title: "Founder 2" },
-  { id: "03", title: "Founder 3" },
+const founders = [
+  {
+    name: "Kunwar Zaid",
+    role: "Founder & CEO",
+    initials: "KZ",
+    linkedin: "#",
+    bio: "Leads Zyvox's strategic vision and enterprise partnerships across India and Australia.",
+  },
+  {
+    name: "Vijayant Singh",
+    role: "Co-Founder & CFO",
+    initials: "VS",
+    linkedin: "#",
+    bio: "Oversees financial strategy, compliance, and sustainable growth operations.",
+  },
+  {
+    name: "Lokik Ganeriwal",
+    role: "Co-Founder & CTO",
+    initials: "LG",
+    linkedin: "#",
+    bio: "Architects the AI infrastructure and engineering systems powering Zyvox's automation platform.",
+  },
 ];
+
+/* ─── Scroll Observer Hook ─── */
+
+function useScrollReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+
+    const targets = root.querySelectorAll(".scroll-fade-in");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return ref;
+}
+
+/* ─── Component ─── */
 
 const About = () => {
   usePageMeta({
     title: "Zyvox Automations | About",
-    description: "Learn about Zyvox Automations methodology, mission, and principles for building scalable communication operations.",
+    description:
+      "Discover the enterprise-grade AI automation infrastructure powering the next generation of businesses in India and Australia.",
     path: "/about",
   });
 
+  const wrapperRef = useScrollReveal();
+
   return (
-    <section className="container py-10 sm:py-12 md:py-20">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="text-center text-3xl font-bold text-violet-700 sm:text-4xl">About Us</h1>
-        <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-violet-500" />
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-            <div className="border-l-4 border-violet-500 pl-4">
-              <p>
-                At Automatez AI, we blend <span className="font-semibold text-violet-600">artificial and human intelligence</span> to empower businesses with systems that cut through inefficiencies and unlock scale. We have{" "}
-                <span className="font-semibold text-violet-600">partnered with established companies</span> to reduce manual work, automate decision-making, and move faster without the overhead of building in-house.
-              </p>
-            </div>
-            <div className="border-l-4 border-violet-500 pl-4">
-              <p>
-                Our core work falls into four areas: delivering custom AI systems through <span className="font-semibold text-violet-600">direct B2B projects</span>, <span className="font-semibold text-violet-600">collaborating with other agencies</span> as a technical partner, providing hands-on{" "}
-                <span className="font-semibold text-violet-600">AI education</span> through training and workshops, and offering strategic consulting to guide AI adoption. Each solution is tailored, each result measurable.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {focusAreas.map((area) => (
-              <article key={area.id} className="rounded-xl border border-border bg-card p-5">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md bg-violet-100 text-base font-bold text-violet-700">
-                  {area.id}
-                </div>
-                <h2 className="text-xl font-semibold text-foreground">{area.title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{area.subtitle}</p>
-              </article>
-            ))}
+    <div ref={wrapperRef} className="bg-brand-surface">
+      {/* ════════════════════════════════════════════════════════
+          SECTION A — Hero: The Vision
+          ════════════════════════════════════════════════════════ */}
+      <section className="container grid items-center gap-10 py-12 sm:py-16 md:grid-cols-2 md:gap-14 md:py-24">
+        {/* Text */}
+        <div className="animate-rise">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
+            About Zyvox Automations
+          </p>
+          <h1 className="text-3xl font-bold leading-tight text-brand-navy sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+            The automation infrastructure powering the next generation of
+            enterprises.
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg">
+            Zyvox Automations is an enterprise-grade AI partner dedicated to
+            mid-market and scaling businesses in{" "}
+            <span className="font-semibold text-foreground">India</span> and{" "}
+            <span className="font-semibold text-foreground">Australia</span>.
+            We build reliable, measurable communication and operational systems
+            — so you can focus on growth.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              to="/contact"
+              className="btn-pop inline-flex items-center justify-center rounded-lg bg-brand-navy px-6 py-3 text-sm font-semibold text-primary-foreground"
+            >
+              Work With Us <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              to="/services"
+              className="btn-pop inline-flex items-center justify-center rounded-lg border border-brand-navy/20 bg-card px-6 py-3 text-sm font-semibold text-brand-navy hover:border-brand-gold"
+            >
+              Explore Services
+            </Link>
           </div>
         </div>
-      </div>
 
-      <div className="mx-auto mt-14 max-w-5xl">
-        <h2 className="text-center text-2xl font-bold text-violet-700 sm:text-3xl">Founders</h2>
-        <p className="mt-3 text-center text-sm text-muted-foreground">
-          Placeholder section. Add founder names, roles, bios, and profile links below.
-        </p>
+        {/* Image */}
+        <div className="animate-rise">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-3 shadow-xl sm:p-4">
+            <img
+              src="/images/about-vision.jpg"
+              alt="Modern automated workspace"
+              className="h-[300px] w-full rounded-2xl object-cover sm:h-[360px] md:h-[420px]"
+            />
+            <div className="absolute bottom-4 left-4 max-w-[14rem] rounded-xl bg-background/90 p-3 shadow-lg backdrop-blur sm:bottom-8 sm:left-8 sm:max-w-xs sm:p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
+                Enterprise AI Partner
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Discovery, implementation, and optimization — delivered as one
+                operating model.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {founderPlaceholders.map((founder) => (
-            <article key={founder.id} className="rounded-xl border border-dashed border-violet-300 bg-card p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-violet-600">{founder.id}</p>
-              <h3 className="mt-2 text-lg font-semibold text-foreground">{founder.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">Name: [Add founder name]</p>
-              <p className="mt-1 text-sm text-muted-foreground">Role: [Add founder role]</p>
-              <p className="mt-1 text-sm text-muted-foreground">Bio: [Add short founder bio]</p>
-              <p className="mt-1 text-sm text-muted-foreground">LinkedIn: [Add profile URL]</p>
+      {/* ════════════════════════════════════════════════════════
+          SECTION B — Our Pillars
+          ════════════════════════════════════════════════════════ */}
+      <section className="container pb-14 sm:pb-16 md:pb-24">
+        <div className="scroll-fade-in mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
+            What We Build
+          </p>
+          <h2 className="mt-3 text-2xl font-bold text-brand-navy sm:text-3xl md:text-4xl">
+            Enterprise-Grade AI Solutions
+          </h2>
+          <p className="mt-4 text-sm text-muted-foreground sm:text-base">
+            Three interconnected pillars form the backbone of every Zyvox
+            engagement — each engineered for reliability, scale, and measurable
+            impact.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3 md:mt-14">
+          {pillars.map((pillar, i) => (
+            <article
+              key={pillar.title}
+              className={`scroll-fade-in scroll-fade-in-delay-${i + 1
+                } interactive-card group relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8`}
+            >
+              {/* Gold top-line accent */}
+              <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-brand-gold/60 via-brand-gold to-brand-gold/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-navy/10 text-brand-navy transition-colors group-hover:bg-brand-navy group-hover:text-primary-foreground">
+                <pillar.icon className="h-6 w-6" />
+              </div>
+
+              <h3 className="text-xl font-semibold text-foreground sm:text-2xl">
+                {pillar.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {pillar.description}
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {pillar.highlights.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-brand-gold/30 bg-brand-gold/5 px-3 py-1 text-xs font-medium text-brand-navy"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════
+          SECTION C — Leadership
+          ════════════════════════════════════════════════════════ */}
+      <section className="container pb-14 sm:pb-16 md:pb-24">
+        <div className="scroll-fade-in mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
+            The Team
+          </p>
+          <h2 className="mt-3 text-2xl font-bold text-brand-navy sm:text-3xl md:text-4xl">
+            Meet Our Leadership
+          </h2>
+          <p className="mt-4 text-sm text-muted-foreground sm:text-base">
+            A founding team combining operational expertise, financial acumen,
+            and deep technical capability.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3 md:mt-14">
+          {founders.map((founder, i) => (
+            <article
+              key={founder.name}
+              className={`scroll-fade-in scroll-fade-in-delay-${i + 1
+                } group relative rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-brand-gold/40 hover:shadow-lg sm:p-8`}
+            >
+              {/* Avatar placeholder with initials */}
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-navy text-2xl font-bold text-primary-foreground ring-4 ring-brand-gold/20 transition-all group-hover:ring-brand-gold/50">
+                {founder.initials}
+              </div>
+
+              <h3 className="mt-5 text-xl font-semibold text-foreground">
+                {founder.name}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-brand-gold">
+                {founder.role}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {founder.bio}
+              </p>
+
+              {/* LinkedIn icon */}
+              <a
+                href={founder.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${founder.name} LinkedIn`}
+                className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-brand-gold hover:text-brand-navy"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
+
+      {/* ════════════════════════════════════════════════════════
+          CTA Strip
+          ════════════════════════════════════════════════════════ */}
+      <section className="container pb-14 sm:pb-16 md:pb-24">
+        <div className="scroll-fade-in flex flex-col items-center gap-6 rounded-2xl bg-brand-navy px-6 py-12 text-center sm:px-10 sm:py-16 md:flex-row md:justify-between md:text-left">
+          <div>
+            <h2 className="text-2xl font-bold text-primary-foreground sm:text-3xl">
+              Ready to automate your operations?
+            </h2>
+            <p className="mt-2 max-w-lg text-sm text-primary-foreground/70 sm:text-base">
+              Let's build an automation infrastructure tailored to your business
+              — with measurable outcomes from week one.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="btn-pop shrink-0 rounded-lg bg-brand-gold px-8 py-3.5 text-sm font-bold text-brand-navy shadow-lg"
+          >
+            Book a Consultation
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 };
 

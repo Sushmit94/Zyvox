@@ -109,7 +109,7 @@ const SiteShell = () => {
 
        <div className="container mt-10 border-t border-border pt-6 text-sm text-muted-foreground flex items-center justify-between">
   <span>© {new Date().getFullYear()} Zyvox Automations. All rights reserved.</span>
-  <span>Contact for Pricing</span>
+  <span className="container ">Contact for Pricing</span>
 </div>
       </footer>
     </div>
