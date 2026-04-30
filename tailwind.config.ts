@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -9,10 +10,15 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px",
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["Playfair Display", "Georgia", "serif"],
+        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        sans: ["Sora", "system-ui", "-apple-system", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -48,10 +54,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          navy: "hsl(var(--brand-navy))",
+          navy: "#001F3F",
           "navy-soft": "hsl(var(--brand-navy-soft))",
-          gold: "hsl(var(--brand-gold))",
+          gold: "#D4AF37",
           "gold-soft": "hsl(var(--brand-gold-soft))",
+          alabaster: "#F9FAFB",
         },
       },
       borderRadius: {
@@ -72,13 +79,34 @@ export default {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "pulse-gold": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(212, 175, 55, 0.4)" },
+          "50%": { boxShadow: "0 0 0 8px rgba(212, 175, 55, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        marquee: "marquee 25s linear infinite",
+        shimmer: "shimmer 2s linear infinite",
+        "pulse-gold": "pulse-gold 2s ease-in-out infinite",
+      },
+      boxShadow: {
+        diffused: "0 25px 60px -15px rgba(0, 31, 63, 0.12)",
+        "diffused-lg": "0 35px 80px -20px rgba(0, 31, 63, 0.18)",
+        "gold-glow": "0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1)",
+        "gold-glow-sm": "0 0 10px rgba(212, 175, 55, 0.25)",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

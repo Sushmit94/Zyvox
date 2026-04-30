@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 219 58% 18%;
 
-    --primary: 219 73% 18%;
+    --primary: 210 100% 12%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 213 43% 94%;
@@ -22,21 +22,21 @@
     --muted: 210 36% 95%;
     --muted-foreground: 218 24% 40%;
 
-    --accent: 42 36% 56%;
-    --accent-foreground: 219 73% 15%;
+    --accent: 43 76% 52%;
+    --accent-foreground: 210 100% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 86%;
+    --border: 214 25% 90%;
     --input: 214 25% 86%;
-    --ring: 42 36% 56%;
+    --ring: 43 76% 52%;
 
     --radius: 0.75rem;
 
-    --brand-navy: 219 73% 18%;
+    --brand-navy: 210 100% 12%;
     --brand-navy-soft: 218 57% 26%;
-    --brand-gold: 42 36% 56%;
+    --brand-gold: 43 76% 52%;
     --brand-gold-soft: 44 31% 72%;
   }
 }
@@ -55,23 +55,43 @@
   h1,
   h2,
   h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(130deg, hsl(var(--brand-navy)), hsl(var(--brand-gold)));
+    background-image: linear-gradient(130deg, #001F3F, #D4AF37);
   }
 
   .bg-brand-surface {
     background-image:
-      radial-gradient(circle at 15% 10%, hsl(var(--brand-gold) / 0.18), transparent 45%),
-      radial-gradient(circle at 85% 15%, hsl(var(--brand-navy-soft) / 0.18), transparent 42%),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+      radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.08), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(0, 31, 63, 0.06), transparent 42%),
+      linear-gradient(180deg, #FFFFFF, #F9FAFB);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 }
 
@@ -95,14 +115,21 @@ html {
   }
 }
 
+/* ── Marquee ───────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Float / Rise ──────────────────────────────────────── */
 @keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes fade-rise {
@@ -116,6 +143,7 @@ html {
   }
 }
 
+/* ── Scroll Fade ───────────────────────────────────────── */
 .scroll-fade-in {
   opacity: 0;
   transform: translateY(32px);
@@ -131,12 +159,13 @@ html {
 .scroll-fade-in-delay-2 { transition-delay: 0.2s; }
 .scroll-fade-in-delay-3 { transition-delay: 0.3s; }
 
+/* ── Hover / Interactive ───────────────────────────────── */
 .hover-lift {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 36px -12px hsl(var(--brand-navy) / 0.28);
+  box-shadow: 0 14px 36px -12px rgba(0, 31, 63, 0.28);
 }
 
 .btn-pop {
@@ -144,12 +173,30 @@ html {
 }
 .btn-pop:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 24px -14px hsl(var(--brand-navy) / 0.6);
+  box-shadow: 0 12px 24px -14px rgba(0, 31, 63, 0.6);
 }
 .btn-pop:active {
   transform: scale(0.97);
 }
 
+/* ── Btn Primary Gold Glow ─────────────────────────────── */
+.btn-primary-gold {
+  position: relative;
+  background-color: #001F3F;
+  color: #fff;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary-gold:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35), 0 0 40px rgba(212, 175, 55, 0.12), 0 8px 24px -8px rgba(0, 31, 63, 0.4);
+  transform: translateY(-2px);
+}
+.btn-primary-gold:active {
+  transform: translateY(0px);
+}
+
+/* ── Nav Link ──────────────────────────────────────────── */
 .nav-link {
   position: relative;
 }
@@ -161,7 +208,7 @@ html {
   bottom: -8px;
   width: 100%;
   height: 2px;
-  background: hsl(var(--brand-gold));
+  background: #D4AF37;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.25s ease;
@@ -173,20 +220,79 @@ html {
   transform-origin: left;
 }
 
+/* ── Interactive Card ──────────────────────────────────── */
 .interactive-card {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
 .interactive-card:hover {
   transform: translateY(-6px);
-  border-color: hsl(var(--brand-gold-soft));
-  box-shadow: 0 20px 35px -24px hsl(var(--brand-navy) / 0.5);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 25px 50px -20px rgba(0, 31, 63, 0.2);
 }
 
+/* ── Vault Card ────────────────────────────────────────── */
+.vault-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vault-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vault-card:hover::before {
+  transform: scaleX(1);
+}
+
+.vault-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -20px rgba(0, 31, 63, 0.22);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* ── Bento Grid ────────────────────────────────────────── */
+.bento-item {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bento-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px -15px rgba(0, 31, 63, 0.18);
+}
+
+/* ── Gold Divider ──────────────────────────────────────── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  opacity: 0.4;
+}
+
+/* ── Animate Rise ──────────────────────────────────────── */
 .animate-rise {
   animation: fade-rise 0.65s ease forwards;
 }
 
 .animate-float-soft {
   animation: float-soft 6s ease-in-out infinite;
+}
+
+/* ── Logo greyscale on marquee ─────────────────────────── */
+.logo-grey {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.5;
+  transition: all 0.35s ease;
+}
+.logo-grey:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
 }

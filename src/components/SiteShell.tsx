@@ -10,15 +10,16 @@ const links = [
 ];
 
 const linkClasses = ({ isActive }: { isActive: boolean }) =>
-  `nav-link text-sm font-semibold transition-colors ${isActive ? "nav-link-active text-brand-navy" : "text-muted-foreground hover:text-foreground"}`;
+  `nav-link text-sm font-semibold transition-colors ${isActive ? "nav-link-active text-[#001F3F]" : "text-[#001F3F]/50 hover:text-[#001F3F]"}`;
 
 const SiteShell = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
-        <div className="container flex h-16 items-center justify-between md:h-20">
+      {/* ── Glassmorphism Navbar ──────────────────────────────── */}
+      <header className="sticky top-0 z-50 border-b border-[#001F3F]/5 glass-nav">
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 sm:px-8 md:h-20">
           <NavLink to="/" className="flex items-center" onClick={() => setOpen(false)}>
             <div className="h-10 w-44 overflow-hidden rounded-md sm:h-12 sm:w-56 md:h-14 md:w-72">
               <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain" />
@@ -33,7 +34,7 @@ const SiteShell = () => {
             ))}
           </nav>
 
-          <NavLink to="/contact" className="btn-pop hidden rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-primary-foreground md:inline-flex">
+          <NavLink to="/contact" className="btn-primary-gold hidden rounded-xl px-5 py-2.5 text-sm font-semibold md:inline-flex">
             Contact
           </NavLink>
 
@@ -43,14 +44,14 @@ const SiteShell = () => {
         </div>
 
         {open && (
-          <div className="border-t border-border bg-background px-6 py-4 md:hidden">
+          <div className="border-t border-[#001F3F]/5 glass-nav px-6 py-5 md:hidden">
             <div className="flex flex-col gap-4">
               {links.map((link) => (
                 <NavLink key={link.to} to={link.to} onClick={() => setOpen(false)} className={linkClasses}>
                   {link.label}
                 </NavLink>
               ))}
-              <NavLink to="/contact" onClick={() => setOpen(false)} className="mt-2 inline-flex justify-center rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-primary-foreground">
+              <NavLink to="/contact" onClick={() => setOpen(false)} className="btn-primary-gold mt-2 inline-flex justify-center rounded-xl px-4 py-2.5 text-sm font-semibold">
                 Contact
               </NavLink>
             </div>
@@ -58,59 +59,100 @@ const SiteShell = () => {
         )}
       </header>
 
+      {/* ── Main Content ─────────────────────────────────────── */}
       <main>
         <Outlet />
       </main>
 
-      <footer className="border-t border-border bg-secondary/80 py-14">
-        <div className="container grid gap-10 text-center md:text-left lg:grid-cols-3">
-          <div>
-            <div className="mx-auto h-14 w-60 overflow-hidden rounded-md md:mx-0 md:h-16 md:w-72">
-              <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain" />
+      {/* ── Premium Footer ───────────────────────────────────── */}
+      <footer className="border-t border-[#001F3F]/5 bg-[#001F3F] py-16 text-white sm:py-20">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
+          <div className="grid gap-12 text-center md:text-left lg:grid-cols-4">
+            {/* Brand */}
+            <div className="lg:col-span-1">
+              <div className="mx-auto h-14 w-60 overflow-hidden rounded-md md:mx-0 md:h-16 md:w-72">
+                <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain brightness-200 invert" />
+              </div>
+              <p className="mx-auto mt-5 max-w-xs text-sm leading-relaxed text-white/40 md:mx-0">
+                AI-powered infrastructure that scales mid-market enterprises across India and Australia.
+              </p>
             </div>
-            <p className="mx-auto mt-4 max-w-xs text-sm text-muted-foreground md:mx-0">
-              We build business-grade communication workflows that improve response quality, speed, and conversion.
-            </p>
-          </div>
 
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-navy">Explore</h3>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><NavLink to="/services" className="hover:text-foreground">Services</NavLink></li>
-              <li><NavLink to="/testimonials" className="hover:text-foreground">Testimonials</NavLink></li>
-              <li><NavLink to="/about" className="hover:text-foreground">About</NavLink></li>
-              <li><NavLink to="/contact" className="hover:text-foreground">Contact</NavLink></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-navy">Reach Us</h3>
-            <div className="mt-4 inline-flex items-center gap-4 rounded-md bg-brand-navy px-4 py-3 text-primary-foreground">
-              <a
-                href="https://www.linkedin.com/company/zyvox-ai/"
-                target="_blank"
-                rel="noreferrer"
-                className="opacity-90 transition-opacity hover:opacity-100"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="mailto:hello@zyvoxautomations.com" className="opacity-90 transition-opacity hover:opacity-100" aria-label="Email">
-                <Mail className="h-6 w-6" />
-              </a>
-              <a href="tel:+10000000000" className="opacity-90 transition-opacity hover:opacity-100" aria-label="Phone">
-                <Phone className="h-6 w-6" />
-              </a>
+            {/* Explore */}
+            <div>
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Explore</h3>
+              <ul className="mt-5 space-y-3 text-sm text-white/50">
+                <li><NavLink to="/services" className="transition-colors hover:text-white">Services</NavLink></li>
+                <li><NavLink to="/testimonials" className="transition-colors hover:text-white">Testimonials</NavLink></li>
+                <li><NavLink to="/about" className="transition-colors hover:text-white">About</NavLink></li>
+                <li><NavLink to="/contact" className="transition-colors hover:text-white">Contact</NavLink></li>
+              </ul>
             </div>
-          
+
+            {/* Legal */}
+            <div>
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Entity Details</h3>
+              <ul className="mt-5 space-y-3 text-sm text-white/50">
+                <li className="flex items-center justify-center gap-2 md:justify-start">
+                  <span className="text-white/30">Entity:</span>
+                  <span className="text-white/60">Zyvox Automations</span>
+                </li>
+                <li className="flex items-center justify-center gap-2 md:justify-start">
+                  <span className="text-white/30">Type:</span>
+                  <span className="text-white/60">Sole Proprietorship</span>
+                </li>
+                <li className="flex items-center justify-center gap-2 md:justify-start">
+                  <span className="text-white/30">UDYAM:</span>
+                  <span className="font-mono text-xs text-white/60">UDYAM-UD-56-0161699</span>
+                </li>
+                <li className="flex items-center justify-center gap-2 md:justify-start">
+                  <span className="text-white/30">Markets:</span>
+                  <span className="text-white/60">India & Australia</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Connect */}
+            <div>
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Connect</h3>
+              <div className="mt-5 inline-flex items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/company/zyvox-ai/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="mailto:hello@zyvoxautomations.com"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  aria-label="Email"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+                <a
+                  href="tel:+10000000000"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  aria-label="Phone"
+                >
+                  <Phone className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
 
+          {/* Bottom bar */}
+          <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
+            <span className="font-sans text-xs text-white/25">
+              © {new Date().getFullYear()} Zyvox Automations. All rights reserved.
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/15">
+              Enterprise Infrastructure · India & Australia
+            </span>
+          </div>
         </div>
-
-       <div className="container mt-10 border-t border-border pt-6 text-sm text-muted-foreground flex items-center justify-between">
-  <span>© {new Date().getFullYear()} Zyvox Automations. All rights reserved.</span>
-  <span className="container ">Contact for Pricing</span>
-</div>
       </footer>
     </div>
   );
