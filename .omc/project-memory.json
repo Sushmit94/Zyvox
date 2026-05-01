@@ -1,0 +1,277 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777560767865,
+  "projectRoot": "/home/casp1an/Code/Zyvox",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "18.3.1",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "18.3.1",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "5.4.19",
+        "category": "build"
+      },
+      {
+        "name": "vitest",
+        "version": "3.2.4",
+        "category": "testing"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "bun build",
+    "testCommand": "bun test",
+    "lintCommand": "bun lint",
+    "devCommand": "bun dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "build:dev": "vite build --mode development",
+      "lint": "eslint .",
+      "preview": "vite preview",
+      "test": "vitest run",
+      "test:watch": "vitest"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "db": {
+      "path": "db",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777560767854,
+      "keyFiles": [
+        "schema.sql"
+      ]
+    },
+    "images": {
+      "path": "images",
+      "purpose": null,
+      "fileCount": 16,
+      "lastAccessed": 1777560767854,
+      "keyFiles": [
+        "about-vision.jpg",
+        "contact-cta.jpg",
+        "hero-main.jpg",
+        "industry-dental.jpg",
+        "industry-multisite.jpg"
+      ]
+    },
+    "netlify": {
+      "path": "netlify",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1777560767858,
+      "keyFiles": []
+    },
+    "old_images": {
+      "path": "old_images",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777560767862,
+      "keyFiles": [
+        "image1.PNG",
+        "logo.PNG",
+        "logo_Background_Removed.png"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 4,
+      "lastAccessed": 1777560767862,
+      "keyFiles": [
+        "placeholder.svg",
+        "robots.txt",
+        "site.webmanifest",
+        "sitemap.xml"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 5,
+      "lastAccessed": 1777560767862,
+      "keyFiles": [
+        "App.css",
+        "App.tsx",
+        "index.css",
+        "main.tsx",
+        "vite-env.d.ts"
+      ]
+    },
+    "src/assets": {
+      "path": "src/assets",
+      "purpose": "Static assets",
+      "fileCount": 4,
+      "lastAccessed": 1777560767863,
+      "keyFiles": [
+        "ai-receptionist-dental.jpg",
+        "hero-waves.jpg",
+        "reception-workflow.jpg"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 13,
+      "lastAccessed": 1777560767863,
+      "keyFiles": [
+        "AboutSection.tsx",
+        "AudioDemos.tsx",
+        "CTASection.tsx"
+      ]
+    },
+    "src/lib": {
+      "path": "src/lib",
+      "purpose": "Library code",
+      "fileCount": 1,
+      "lastAccessed": 1777560767863,
+      "keyFiles": [
+        "utils.ts"
+      ]
+    },
+    "src/pages": {
+      "path": "src/pages",
+      "purpose": "Page components",
+      "fileCount": 10,
+      "lastAccessed": 1777560767863,
+      "keyFiles": [
+        "About.tsx",
+        "Contact.tsx",
+        "Founders.tsx"
+      ]
+    },
+    "src/test": {
+      "path": "src/test",
+      "purpose": "Test files",
+      "fileCount": 2,
+      "lastAccessed": 1777560767864,
+      "keyFiles": [
+        "example.test.ts",
+        "setup.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/pages/Testimonials.tsx",
+      "accessCount": 17,
+      "lastAccessed": 1777612855021,
+      "type": "file"
+    },
+    {
+      "path": "src/components/SiteShell.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1777626124316,
+      "type": "file"
+    },
+    {
+      "path": "src/App.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1777629203057,
+      "type": "file"
+    },
+    {
+      "path": "schema.md",
+      "accessCount": 1,
+      "lastAccessed": 1777561028566,
+      "type": "file"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 1,
+      "lastAccessed": 1777561039864,
+      "type": "file"
+    },
+    {
+      "path": "src/components/HeroSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777561044714,
+      "type": "file"
+    },
+    {
+      "path": "src/components/AboutSection.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777561044850,
+      "type": "file"
+    },
+    {
+      "path": "frontend-design/skills/frontend-design/SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1777561048751,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Industries.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777561049174,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Founders.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777561049611,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777629199485,
+      "type": "file"
+    },
+    {
+      "path": "vercel.json",
+      "accessCount": 1,
+      "lastAccessed": 1777629245436,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
