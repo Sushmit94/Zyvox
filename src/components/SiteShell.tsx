@@ -1,6 +1,6 @@
 import { Linkedin, Mail, Menu, Phone, X } from "lucide-react";
-import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const links = [
   { label: "Home", to: "/" },
@@ -14,6 +14,12 @@ const linkClasses = ({ isActive }: { isActive: boolean }) =>
 
 const SiteShell = () => {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // ── Scroll to top on every route change ──────────────────
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -71,7 +77,7 @@ const SiteShell = () => {
             {/* Brand */}
             <div className="lg:col-span-1">
               <div className="mx-auto h-14 w-60 overflow-hidden rounded-md md:mx-0 md:h-16 md:w-72">
-                <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain brightness-200 invert" />
+                <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain brightness-0 invert" />
               </div>
               <p className="mx-auto mt-5 max-w-xs text-sm leading-relaxed text-white/40 md:mx-0">
                 AI-powered infrastructure that scales mid-market enterprises across India and Australia.
@@ -89,7 +95,7 @@ const SiteShell = () => {
               </ul>
             </div>
 
-            {/* Legal */}
+            {/* Entity Details */}
             <div>
               <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Entity Details</h3>
               <ul className="mt-5 space-y-3 text-sm text-white/50">

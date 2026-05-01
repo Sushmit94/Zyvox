@@ -175,7 +175,7 @@ const TechMarquee = () => (
         {[...techLogos, ...techLogos, ...techLogos, ...techLogos].map((logo, i) => (
           <div
             key={`${logo.name}-${i}`}
-            className="logo-grey mx-6 flex flex-shrink-0 cursor-default items-center gap-3 rounded-2xl border border-[#001F3F]/5 bg-white px-8 py-4 shadow-sm transition-all hover:border-[#D4AF37]/20 hover:shadow-gold-glow-sm sm:mx-8 sm:px-10 sm:py-5"
+            className="mx-6 flex flex-shrink-0 cursor-default items-center gap-3 rounded-2xl border border-[#001F3F]/10 bg-white px-8 py-4 shadow-sm transition-all duration-300 hover:border-[#D4AF37]/40 hover:shadow-[0_0_0_1px_#D4AF37] sm:mx-8 sm:px-10 sm:py-5"
           >
             <span className="text-2xl">{logo.icon}</span>
             <span className="font-sans text-base font-semibold text-[#001F3F] sm:text-lg">
