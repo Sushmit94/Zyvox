@@ -83,7 +83,7 @@ const SiteShell = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="md:text-right">
             <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-navy">Reach Us</h3>
             <div className="mt-4 inline-flex items-center gap-4 rounded-md bg-brand-navy px-4 py-3 text-primary-foreground">
               <a
