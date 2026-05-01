@@ -9,7 +9,7 @@ const featured = {
   name: "Priya Menon",
   role: "Director of Operations",
   company: "Saanvi Dental Group",
-  location: "Mumbai, India",
+  location: "Toronto, Canada",
   image: "/images/testimonial-client-1.jpg",
 };
 
@@ -31,7 +31,7 @@ const voices: Voice[] = [
     name: "James Whitford",
     role: "Chief Operating Officer",
     company: "Northshore Home Services",
-    location: "Sydney, Australia",
+    location: "New York, USA",
     initials: "JW",
     image: "/images/testimonial-client-2.jpg",
     accent: "gold",
@@ -42,7 +42,7 @@ const voices: Voice[] = [
     name: "Aarav Khurana",
     role: "Head of Field Operations",
     company: "Meridian Facility Partners",
-    location: "Bengaluru, India",
+    location: "London, United Kingdom",
     initials: "AK",
     accent: "navy",
   },
@@ -52,7 +52,7 @@ const voices: Voice[] = [
     name: "Hannah Lindqvist",
     role: "Customer Experience Lead",
     company: "Brightline Dental Collective",
-    location: "Melbourne, Australia",
+    location: "Stockholm, Sweden",
     initials: "HL",
     image: "/images/testimonial-client-3.jpg",
     accent: "gold",
@@ -63,7 +63,7 @@ const voices: Voice[] = [
     name: "Rohan Mehta",
     role: "VP of Operations",
     company: "Halevy Multi-Site Group",
-    location: "Pune, India",
+    location: "Singapore",
     initials: "RM",
     accent: "navy",
   },
@@ -73,7 +73,7 @@ const voices: Voice[] = [
     name: "Eleanor Whitcombe",
     role: "Practice Director",
     company: "Cohen & Whitcombe Advisory",
-    location: "Brisbane, Australia",
+    location: "Dublin, Ireland",
     initials: "EW",
     accent: "gold",
   },
@@ -89,7 +89,7 @@ const Testimonials = () => {
   usePageMeta({
     title: "Zyvox Automations | Client Voices",
     description:
-      "Operators across India and Australia describe how Zyvox Automations rebuilt their intake, dispatch, and customer communication operations.",
+      "Operators around the world describe how Zyvox Automations rebuilt their intake, dispatch, and customer communication operations.",
     path: "/testimonials",
   });
 
@@ -130,7 +130,7 @@ const Testimonials = () => {
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               The strongest endorsement of an automation partner is rarely about features. It is about
               what stopped breaking, what stopped costing time, and what finally became measurable.
-              These are conversations from operators across India and Australia who have lived inside
+              These are conversations from operators across global markets who have lived inside
               the systems we build.
             </p>
           </div>

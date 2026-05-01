@@ -202,14 +202,14 @@
   "hotPaths": [
     {
       "path": "src/pages/Testimonials.tsx",
-      "accessCount": 9,
-      "lastAccessed": 1777612551167,
+      "accessCount": 17,
+      "lastAccessed": 1777612855021,
       "type": "file"
     },
     {
       "path": "src/components/SiteShell.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1777612460827,
+      "accessCount": 6,
+      "lastAccessed": 1777626124316,
       "type": "file"
     },
     {
@@ -252,6 +252,12 @@
       "path": "src/pages/Founders.tsx",
       "accessCount": 1,
       "lastAccessed": 1777561049611,
+      "type": "file"
+    },
+    {
+      "path": "src/App.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777626135561,
       "type": "file"
     }
   ],
