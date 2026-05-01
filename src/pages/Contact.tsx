@@ -9,6 +9,8 @@ type ContactPayload = {
   message: string;
 };
 
+
+
 const initialPayload: ContactPayload = {
   name: "",
   email: "",
