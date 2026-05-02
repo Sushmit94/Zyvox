@@ -35,14 +35,19 @@ const CTASection = () => {
     setStatus("idle");
 
     try {
-      const response = await fetch("/.netlify/functions/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      // If we're in dev mode, just simulate a successful request since backend isn't available
+      if (import.meta.env.DEV) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      } else {
+        const response = await fetch("/.netlify/functions/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
 
-      if (!response.ok) {
-        throw new Error("Request failed");
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
       }
 
       setFormData(initialState);
