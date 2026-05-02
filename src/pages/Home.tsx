@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowRight, Shield, Cpu, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Sparkles, Users, Globe2, Lock } from "lucide-react";
+import { ArrowRight, Shield, Cpu, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Globe2, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -460,21 +460,29 @@ const TestimonialsSection = () => (
 /* ─────────────────────────────────────────────
    Section V: Powering AI-First Future
    ───────────────────────────────────────────── */
-const aiFirstPillars = [
+const AiFirstStarBullet = ({ className = "" }: { className?: string }) => (
+  <svg
+    className={`h-3.5 w-3.5 shrink-0 text-[#6CB396] sm:h-4 sm:w-4 ${className}`}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden
+  >
+    <path d="M12 2.2L14.2 9H21l-5.6 4.1 2.1 6.7L12 16.9 5.5 19.8l2.1-6.7L2 9h6.8L12 2.2z" />
+  </svg>
+);
+
+const aiFirstFeatures = [
   {
-    icon: Shield,
     title: "Sovereign by design",
-    desc: "Build, deploy, and run AI with full control — developed and operated entirely in India.",
+    desc: "Build, deploy, and run AI with full control, developed and operated entirely in India",
   },
   {
-    icon: Sparkles,
     title: "State of the art models",
-    desc: "Industry-leading models built for global languages, culture, and operational context.",
+    desc: "Industry-leading models built for global languages, culture, and context",
   },
   {
-    icon: Users,
     title: "Human at the core",
-    desc: "Forward-deployed engineers work alongside your teams to deliver production-ready agents.",
+    desc: "Forward deployed engineers work alongside your teams to deliver production-ready agents",
   },
 ];
 
@@ -486,34 +494,50 @@ const AIFirstFutureSection = () => (
     </div>
     <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
       <Reveal>
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
             Our North Star
           </p>
-          <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
-            Powering the world's{" "}
+          <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-[#001F3F] sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">
+            Powering World's{" "}
             <span className="italic text-[#D4AF37]">AI-first future</span>
           </h2>
         </div>
       </Reveal>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-8">
-        {aiFirstPillars.map((p, idx) => (
-          <Reveal key={p.title} delay={idx * 0.12}>
-            <article className="group flex h-full flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-8 shadow-diffused transition-all hover:border-[#D4AF37]/30 hover:shadow-gold-glow-sm">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#001F3F] to-[#001F3F]/85 shadow-lg">
-                <p.icon className="h-6 w-6 text-[#D4AF37]" />
+      <Reveal delay={0.12}>
+        <div className="mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
+            <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+              <div className="overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] bg-[#F0F4FF] shadow-inner sm:rounded-[1.35rem]">
+                <img
+                  src="/images/homepage+card.png"
+                  alt=""
+                  className="aspect-square w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <h3 className="font-serif text-xl font-bold text-[#001F3F] sm:text-2xl">
-                {p.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#001F3F]/55 sm:text-base">
-                {p.desc}
-              </p>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+            </div>
+
+            <ul className="flex flex-col gap-8 sm:gap-9">
+              {aiFirstFeatures.map((item) => (
+                <li key={item.title} className="flex gap-3.5 sm:gap-4">
+                  <AiFirstStarBullet className="mt-1" />
+                  <div>
+                    <h3 className="font-serif text-lg font-bold text-[#001F3F] sm:text-xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#001F3F]/55 sm:text-base">
+                      {item.desc}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Reveal>
     </div>
   </section>
 );
