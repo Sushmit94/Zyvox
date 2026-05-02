@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1777560767865,
+  "lastScanned": 1777741124820,
   "projectRoot": "/home/casp1an/Code/Zyvox",
   "techStack": {
     "languages": [
@@ -85,16 +85,38 @@
       "path": "db",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1777560767854,
+      "lastAccessed": 1777741124811,
       "keyFiles": [
         "schema.sql"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 5,
+      "lastAccessed": 1777741124815,
+      "keyFiles": [
+        "index.html",
+        "placeholder.svg",
+        "robots.txt",
+        "site.webmanifest",
+        "sitemap.xml"
+      ]
+    },
+    "frontend-design": {
+      "path": "frontend-design",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777741124816,
+      "keyFiles": [
+        "README.md"
       ]
     },
     "images": {
       "path": "images",
       "purpose": null,
       "fileCount": 16,
-      "lastAccessed": 1777560767854,
+      "lastAccessed": 1777741124817,
       "keyFiles": [
         "about-vision.jpg",
         "contact-cta.jpg",
@@ -107,14 +129,14 @@
       "path": "netlify",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1777560767858,
+      "lastAccessed": 1777741124817,
       "keyFiles": []
     },
     "old_images": {
       "path": "old_images",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1777560767862,
+      "lastAccessed": 1777741124817,
       "keyFiles": [
         "image1.PNG",
         "logo.PNG",
@@ -125,7 +147,7 @@
       "path": "public",
       "purpose": "Public files",
       "fileCount": 4,
-      "lastAccessed": 1777560767862,
+      "lastAccessed": 1777741124818,
       "keyFiles": [
         "placeholder.svg",
         "robots.txt",
@@ -137,7 +159,7 @@
       "path": "src",
       "purpose": "Source code",
       "fileCount": 5,
-      "lastAccessed": 1777560767862,
+      "lastAccessed": 1777741124818,
       "keyFiles": [
         "App.css",
         "App.tsx",
@@ -146,11 +168,21 @@
         "vite-env.d.ts"
       ]
     },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1777741124818,
+      "keyFiles": [
+        "index-BDj9X2IP.js",
+        "index-jnMmE5WV.css"
+      ]
+    },
     "src/assets": {
       "path": "src/assets",
       "purpose": "Static assets",
       "fileCount": 4,
-      "lastAccessed": 1777560767863,
+      "lastAccessed": 1777741124819,
       "keyFiles": [
         "ai-receptionist-dental.jpg",
         "hero-waves.jpg",
@@ -161,7 +193,7 @@
       "path": "src/components",
       "purpose": "UI components",
       "fileCount": 13,
-      "lastAccessed": 1777560767863,
+      "lastAccessed": 1777741124820,
       "keyFiles": [
         "AboutSection.tsx",
         "AudioDemos.tsx",
@@ -172,7 +204,7 @@
       "path": "src/lib",
       "purpose": "Library code",
       "fileCount": 1,
-      "lastAccessed": 1777560767863,
+      "lastAccessed": 1777741124820,
       "keyFiles": [
         "utils.ts"
       ]
@@ -180,8 +212,8 @@
     "src/pages": {
       "path": "src/pages",
       "purpose": "Page components",
-      "fileCount": 10,
-      "lastAccessed": 1777560767863,
+      "fileCount": 9,
+      "lastAccessed": 1777741124820,
       "keyFiles": [
         "About.tsx",
         "Contact.tsx",
@@ -192,7 +224,7 @@
       "path": "src/test",
       "purpose": "Test files",
       "fileCount": 2,
-      "lastAccessed": 1777560767864,
+      "lastAccessed": 1777741124820,
       "keyFiles": [
         "example.test.ts",
         "setup.ts"
@@ -208,14 +240,32 @@
     },
     {
       "path": "src/components/SiteShell.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1777742188690,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/testimonials/Testimonials.tsx",
       "accessCount": 6,
-      "lastAccessed": 1777626124316,
+      "lastAccessed": 1777742382424,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Home.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1777742488058,
       "type": "file"
     },
     {
       "path": "src/App.tsx",
       "accessCount": 3,
       "lastAccessed": 1777629203057,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 2,
+      "lastAccessed": 1777742340000,
       "type": "file"
     },
     {
@@ -270,6 +320,60 @@
       "path": "vercel.json",
       "accessCount": 1,
       "lastAccessed": 1777629245436,
+      "type": "file"
+    },
+    {
+      "path": "images/homepage1.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777742160737,
+      "type": "file"
+    },
+    {
+      "path": "images/homepage2.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777742161302,
+      "type": "file"
+    },
+    {
+      "path": "images/homepage3.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777742161625,
+      "type": "file"
+    },
+    {
+      "path": "images/homepage4.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777742161927,
+      "type": "file"
+    },
+    {
+      "path": "images/homepage5.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777742162300,
+      "type": "file"
+    },
+    {
+      "path": "images/favicon.png",
+      "accessCount": 1,
+      "lastAccessed": 1777742162835,
+      "type": "file"
+    },
+    {
+      "path": "images/logo.png",
+      "accessCount": 1,
+      "lastAccessed": 1777742163027,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Index.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777742174814,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Navbar.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777742189052,
       "type": "file"
     }
   ],

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowRight, Shield, Cpu, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings } from "lucide-react";
+import { ArrowRight, Shield, Cpu, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Sparkles, Users, Globe2, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -84,9 +84,19 @@ const HeroSection = () => (
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[#001F3F]/60 sm:text-lg">
-              We build the AI-powered infrastructure that scales mid-market
-              enterprises across India and Australia.
+              India's full-stack sovereign AI platform — building population-scale
+              applications, conversational agents, and enterprise workflows that run
+              from start to finish.
             </p>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-[#001F3F]/45">
+              <span>For Enterprises</span>
+              <span className="h-1 w-1 rounded-full bg-[#D4AF37]" />
+              <span>Government</span>
+              <span className="h-1 w-1 rounded-full bg-[#D4AF37]" />
+              <span>Developers</span>
+            </div>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -448,6 +458,187 @@ const TestimonialsSection = () => (
 );
 
 /* ─────────────────────────────────────────────
+   Section V: Powering AI-First Future
+   ───────────────────────────────────────────── */
+const aiFirstPillars = [
+  {
+    icon: Shield,
+    title: "Sovereign by design",
+    desc: "Build, deploy, and run AI with full control — developed and operated entirely in India.",
+  },
+  {
+    icon: Sparkles,
+    title: "State of the art models",
+    desc: "Industry-leading models built for global languages, culture, and operational context.",
+  },
+  {
+    icon: Users,
+    title: "Human at the core",
+    desc: "Forward-deployed engineers work alongside your teams to deliver production-ready agents.",
+  },
+];
+
+const AIFirstFutureSection = () => (
+  <section className="relative overflow-hidden bg-[#F9FAFB] py-24 sm:py-32">
+    <div className="pointer-events-none absolute inset-0">
+      <div className="absolute -left-32 top-1/3 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-[#D4AF37]/10 to-transparent blur-3xl" />
+      <div className="absolute -right-24 -bottom-16 h-[360px] w-[360px] rounded-full bg-gradient-to-tl from-[#001F3F]/10 to-transparent blur-3xl" />
+    </div>
+    <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+      <Reveal>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+            Our North Star
+          </p>
+          <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
+            Powering the world's{" "}
+            <span className="italic text-[#D4AF37]">AI-first future</span>
+          </h2>
+        </div>
+      </Reveal>
+
+      <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-8">
+        {aiFirstPillars.map((p, idx) => (
+          <Reveal key={p.title} delay={idx * 0.12}>
+            <article className="group flex h-full flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-8 shadow-diffused transition-all hover:border-[#D4AF37]/30 hover:shadow-gold-glow-sm">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#001F3F] to-[#001F3F]/85 shadow-lg">
+                <p.icon className="h-6 w-6 text-[#D4AF37]" />
+              </div>
+              <h3 className="font-serif text-xl font-bold text-[#001F3F] sm:text-2xl">
+                {p.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#001F3F]/55 sm:text-base">
+                {p.desc}
+              </p>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+/* ─────────────────────────────────────────────
+   Section VI: Population-scale Applications
+   ───────────────────────────────────────────── */
+const PopulationScaleSection = () => (
+  <section className="bg-white py-24 sm:py-32">
+    <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <Reveal direction="left">
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#D4AF37] via-[#D4AF37]/85 to-[#001F3F] p-12 shadow-diffused-lg sm:p-16">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5" />
+              <div className="relative flex items-center justify-center">
+                <div className="flex h-48 w-48 rotate-45 items-center justify-center rounded-3xl bg-white/30 backdrop-blur-sm sm:h-64 sm:w-64">
+                  <div className="h-32 w-32 rounded-2xl bg-white/40 sm:h-44 sm:w-44" />
+                </div>
+              </div>
+              <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-md">
+                <Globe2 className="h-3.5 w-3.5 text-white" />
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
+                  Population-scale
+                </span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15} direction="right">
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+              Scale of Ambition
+            </p>
+            <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-[#001F3F] sm:text-4xl md:text-[2.75rem]">
+              Population-scale{" "}
+              <span className="italic">applications.</span>
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-[#001F3F]/60 sm:text-lg">
+              Building products the world can use. Conversational agents fluent in
+              every language. Platforms that run enterprise workflows from start to
+              finish — no hand-offs, no dropped context, no stitched-together hacks.
+            </p>
+
+            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#001F3F]/[0.08] pt-6">
+              {[
+                { value: "120+", label: "Languages" },
+                { value: "10M+", label: "Interactions/mo" },
+                { value: "24/7", label: "Live coverage" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <p className="font-mono text-2xl font-bold text-[#001F3F] sm:text-3xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-[#001F3F]/40">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </div>
+  </section>
+);
+
+/* ─────────────────────────────────────────────
+   Section VII: Enterprise-grade Security
+   ───────────────────────────────────────────── */
+const securityBadges = [
+  { label: "ISO", value: "27001", icon: Globe2 },
+  { label: "AICPA", value: "SOC 2", icon: Lock },
+  { label: "India", value: "Data Residency", icon: Shield },
+];
+
+const SecuritySection = () => (
+  <section className="bg-[#F9FAFB] py-24 sm:py-32">
+    <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
+      <Reveal>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+            Trust Foundation
+          </p>
+          <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
+            Enterprise-grade security.{" "}
+            <span className="italic text-[#001F3F]/60">Built in from day one.</span>
+          </h2>
+        </div>
+      </Reveal>
+
+      <div className="mt-16 grid gap-8 sm:grid-cols-3 sm:gap-10">
+        {securityBadges.map((b, idx) => (
+          <Reveal key={b.value} delay={idx * 0.1}>
+            <div className="group flex flex-col items-center text-center">
+              <div className="relative mb-6 flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#D4AF37]/15 via-white to-[#001F3F]/10 shadow-diffused-lg" />
+                <div className="absolute inset-3 rounded-full bg-gradient-to-br from-white to-[#F9FAFB] shadow-inner" />
+                <div className="relative flex flex-col items-center justify-center">
+                  <b.icon className="mb-1 h-5 w-5 text-[#001F3F]/40" />
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#001F3F]/50">
+                    {b.label}
+                  </p>
+                  <p className="mt-1 font-serif text-xl font-bold text-[#001F3F] sm:text-2xl">
+                    {b.value}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={0.4}>
+        <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-relaxed text-[#001F3F]/50 sm:text-base">
+          Audited controls, encrypted-by-default infrastructure, and full data
+          residency in India — so compliance never blocks the rollout.
+        </p>
+      </Reveal>
+    </div>
+  </section>
+);
+
+/* ─────────────────────────────────────────────
    CTA Section
    ───────────────────────────────────────────── */
 const CTASection = () => (
@@ -465,8 +656,8 @@ const CTASection = () => (
             Ready to build infrastructure that scales?
           </h2>
           <p className="mt-5 text-base text-[#001F3F]/50 sm:text-lg">
-            Join the enterprises across India and Australia already running on
-            Zyvox-powered automation.
+            Join the enterprises, government teams, and developers already running
+            on India's full-stack sovereign AI platform.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -491,9 +682,9 @@ const CTASection = () => (
    ───────────────────────────────────────────── */
 const Home = () => {
   usePageMeta({
-    title: "Zyvox Automations | AI-Powered Enterprise Infrastructure",
+    title: "Zyvox Automations | India's Full-Stack Sovereign AI Platform",
     description:
-      "Zyvox Automations builds AI-powered infrastructure that scales mid-market enterprises across India and Australia. Voice AI, intelligent logistics, and operational sync.",
+      "India's full-stack sovereign AI platform. Population-scale conversational agents, voice AI, intelligent logistics, and enterprise workflows for enterprises, government, and developers.",
     path: "/",
   });
 
@@ -502,8 +693,11 @@ const Home = () => {
       <HeroSection />
       <TechMarquee />
       <PillarsSection />
+      <AIFirstFutureSection />
+      <PopulationScaleSection />
       <div className="gold-divider mx-auto max-w-[800px]" />
       <TestimonialsSection />
+      <SecuritySection />
       <CTASection />
     </div>
   );

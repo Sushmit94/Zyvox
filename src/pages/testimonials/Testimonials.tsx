@@ -8,8 +8,7 @@ const featured = {
     "Zyvox didn't sell us software. They rebuilt how our intake function thinks. Every call, every missed inquiry, every follow-up now lives inside a rhythm we can actually measure — and that has changed the economics of our front desk.",
   name: "Priya Menon",
   role: "Director of Operations",
-  company: "Saanvi Dental Group",
-  location: "Toronto, Canada",
+  location: "Bengaluru, India",
   image: "/images/testimonial-client-1.jpg",
 };
 
@@ -17,7 +16,6 @@ type Voice = {
   quote: string;
   name: string;
   role: string;
-  company: string;
   location: string;
   initials: string;
   image?: string;
@@ -28,11 +26,10 @@ const voices: Voice[] = [
   {
     quote:
       "We had run three vendors through this problem before Zyvox. None of them owned the result. Zyvox runs the operation, not just the tooling — and that's the difference we paid for.",
-    name: "James Whitford",
+    name: "Vikram Iyer",
     role: "Chief Operating Officer",
-    company: "Northshore Home Services",
-    location: "New York, USA",
-    initials: "JW",
+    location: "Mumbai, India",
+    initials: "VI",
     image: "/images/testimonial-client-2.jpg",
     accent: "gold",
   },
@@ -41,19 +38,17 @@ const voices: Voice[] = [
       "Their dispatch logic is the cleanest implementation I've reviewed in this industry. It respects how our crews actually work in the field, instead of forcing them into a shape the software prefers.",
     name: "Aarav Khurana",
     role: "Head of Field Operations",
-    company: "Meridian Facility Partners",
-    location: "London, United Kingdom",
+    location: "Hyderabad, India",
     initials: "AK",
     accent: "navy",
   },
   {
     quote:
       "The thing I keep returning to is how unflashy their work is. There is no theatre. The voice agent answers the phone, the CRM updates itself, the team trusts the numbers. That is rare.",
-    name: "Hannah Lindqvist",
+    name: "Ananya Sharma",
     role: "Customer Experience Lead",
-    company: "Brightline Dental Collective",
-    location: "Stockholm, Sweden",
-    initials: "HL",
+    location: "Pune, India",
+    initials: "AS",
     image: "/images/testimonial-client-3.jpg",
     accent: "gold",
   },
@@ -62,19 +57,17 @@ const voices: Voice[] = [
       "We expected an automation vendor. We got an operating partner. They sat in our weekly review for the first six weeks, and the system they built reflects that depth.",
     name: "Rohan Mehta",
     role: "VP of Operations",
-    company: "Halevy Multi-Site Group",
-    location: "Singapore",
+    location: "New Delhi, India",
     initials: "RM",
     accent: "navy",
   },
   {
     quote:
       "Implementation was deliberate, almost slow at first — and then everything compounded. Three months in, after-hours inquiries stopped leaking and our schedule finally felt full instead of busy.",
-    name: "Eleanor Whitcombe",
+    name: "Meera Krishnan",
     role: "Practice Director",
-    company: "Cohen & Whitcombe Advisory",
-    location: "Dublin, Ireland",
-    initials: "EW",
+    location: "Chennai, India",
+    initials: "MK",
     accent: "gold",
   },
 ];
@@ -157,9 +150,7 @@ const Testimonials = () => {
               <div className="mt-10 flex flex-col gap-4 border-t border-border/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-base font-semibold text-foreground">{featured.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {featured.role} &middot; {featured.company}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{featured.role}</p>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
                     {featured.location}
                   </p>
@@ -341,9 +332,7 @@ const VoiceCard = ({ voice, index }: { voice: Voice; index: number }) => {
           )}
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">{voice.name}</p>
-            <p className="truncate text-xs text-muted-foreground">
-              {voice.role} &middot; {voice.company}
-            </p>
+            <p className="truncate text-xs text-muted-foreground">{voice.role}</p>
             <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">
               {voice.location}
             </p>
