@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowRight, Shield, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Globe2, Lock } from "lucide-react";
+import { ArrowRight, Shield, Zap, Phone, MessageSquare, Truck, Database, Link2, Settings, Globe2, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { cn } from "@/lib/utils";
@@ -349,147 +349,6 @@ const PillarsSection = () => (
 );
 
 /* ─────────────────────────────────────────────
-   Section IV: Executive Trust — Bento Grid
-   ───────────────────────────────────────────── */
-const testimonials = [
-  {
-    name: "Rajesh Mehta",
-    role: "COO, TechVista Solutions",
-    quote:
-      "Zyvox transformed our customer communication pipeline. Response times dropped by 70% and our team finally has bandwidth to focus on strategic work.",
-    image: "/images/testimonial-client-1.jpg",
-    featured: true,
-  },
-  {
-    name: "Sarah Chen",
-    role: "VP Operations, MedBridge Health",
-    quote:
-      "Their dispatch system reduced our field team idle time by 40%. The ROI was visible within the first quarter.",
-    image: "/images/testimonial-client-2.jpg",
-    featured: false,
-  },
-  {
-    name: "David Armstrong",
-    role: "Managing Director, Pacific Logistics",
-    quote:
-      "Professional, pragmatic, and focused on measurable outcomes. The integration work alone saved us 200+ hours monthly.",
-    image: "/images/testimonial-client-3.jpg",
-    featured: false,
-  },
-];
-
-const TestimonialsSection = () => (
-  <section className="bg-[#F9FAFB] py-24 sm:py-32">
-    <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-      <Reveal>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-            Executive Trust
-          </p>
-          <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
-            Trusted by growth-focused leadership teams
-          </h2>
-        </div>
-      </Reveal>
-
-      {/* Bento Grid */}
-      <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {/* Featured large card */}
-        <Reveal delay={0.05} className="md:col-span-2 lg:col-span-1 lg:row-span-2">
-          <div className="bento-item group flex h-full flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused sm:p-8">
-            <div className="relative mb-6 overflow-hidden rounded-2xl">
-              <img
-                src={testimonials[0].image}
-                alt={testimonials[0].name}
-                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72 lg:h-80"
-              />
-              {/* Verified badge */}
-              <div className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 shadow-sm backdrop-blur-sm">
-                <BadgeCheck className="h-4 w-4 text-[#D4AF37]" />
-                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-[#D4AF37]">
-                  Verified Executive
-                </span>
-              </div>
-            </div>
-            <blockquote className="flex-1 font-serif text-lg leading-relaxed text-[#001F3F] sm:text-xl">
-              "{testimonials[0].quote}"
-            </blockquote>
-            <div className="mt-6 border-t border-[#001F3F]/[0.06] pt-5">
-              <p className="font-sans text-sm font-bold text-[#001F3F]">
-                {testimonials[0].name}
-              </p>
-              <p className="font-sans text-xs text-[#001F3F]/40">
-                {testimonials[0].role}
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Smaller bento cards */}
-        {testimonials.slice(1).map((t, idx) => (
-          <Reveal key={t.name} delay={0.12 + idx * 0.1}>
-            <div className="bento-item group flex flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused sm:p-8">
-              <div className="mb-5 flex items-center gap-4">
-                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-2xl">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div>
-                  <p className="font-sans text-sm font-bold text-[#001F3F]">
-                    {t.name}
-                  </p>
-                  <p className="font-sans text-xs text-[#001F3F]/40">
-                    {t.role}
-                  </p>
-                </div>
-                <div className="ml-auto flex items-center gap-1 rounded-full bg-[#D4AF37]/10 px-2.5 py-1">
-                  <BadgeCheck className="h-3.5 w-3.5 text-[#D4AF37]" />
-                  <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-[#D4AF37]">
-                    Verified
-                  </span>
-                </div>
-              </div>
-              <blockquote className="font-serif text-base leading-relaxed text-[#001F3F]/80 sm:text-lg">
-                "{t.quote}"
-              </blockquote>
-            </div>
-          </Reveal>
-        ))}
-
-        {/* Stats bento card */}
-        <Reveal delay={0.35}>
-          <div className="bento-item flex flex-col justify-center rounded-3xl border border-[#D4AF37]/15 bg-gradient-to-br from-[#001F3F] to-[#001F3F]/90 p-6 text-white shadow-diffused-lg sm:p-8">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-              Collective Impact
-            </p>
-            <div className="mt-5 grid grid-cols-2 gap-5">
-              {[
-                { value: "70%", label: "Faster Response" },
-                { value: "40%", label: "Less Idle Time" },
-                { value: "200+", label: "Hours Saved/Mo" },
-                { value: "99.9%", label: "System Uptime" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-mono text-2xl font-bold text-[#D4AF37] sm:text-3xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] text-white/40">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </div>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
    Section V: Powering AI-First Future
    ───────────────────────────────────────────── */
 const AiFirstStarBullet = ({ className = "" }: { className?: string }) => (
@@ -763,7 +622,6 @@ const Home = () => {
       <AIFirstFutureSection />
       <PopulationScaleSection />
       <div className="gold-divider mx-auto max-w-[800px]" />
-      <TestimonialsSection />
       <SecuritySection />
       <CTASection />
     </div>
