@@ -278,6 +278,31 @@ html {
   border-color: rgba(212, 175, 55, 0.25);
 }
 
+/* Gold top accent for large section cards — same reveal-on-hover as .vault-card */
+.card-gold-topline {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-gold-topline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-gold-topline:hover::before {
+  transform: scaleX(1);
+}
+
 /* ── Bento Grid ────────────────────────────────────────── */
 .bento-item {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);

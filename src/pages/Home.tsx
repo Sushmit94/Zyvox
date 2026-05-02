@@ -397,7 +397,7 @@ const AIFirstFutureSection = () => (
       </Reveal>
 
       <Reveal delay={0.12}>
-        <div className="mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+        <div className="card-gold-topline mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
             <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
               <div className="overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] bg-[#F0F4FF] shadow-inner sm:rounded-[1.35rem]">
@@ -465,7 +465,7 @@ const PopulationScaleSection = () => (
       </Reveal>
 
       <Reveal delay={0.1}>
-        <div className="mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused-lg sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+        <div className="card-gold-topline mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused-lg transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
             <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
               <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] shadow-inner sm:rounded-[1.35rem]">
@@ -535,11 +535,11 @@ const SecuritySection = () => (
       <div className="mt-16 grid gap-8 sm:grid-cols-3 sm:gap-10">
         {securityBadges.map((b, idx) => (
           <Reveal key={b.value} delay={idx * 0.1}>
-            <div className="group flex flex-col items-center text-center">
-              <div className="relative mb-6 flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#D4AF37]/15 via-white to-[#001F3F]/10 shadow-diffused-lg" />
+            <div className="flex flex-col items-center text-center">
+              <div className="relative mb-6 flex h-44 w-44 cursor-default items-center justify-center transition-[transform,filter] duration-300 ease-out hover:-translate-y-2 hover:scale-[1.04] hover:drop-shadow-[0_12px_28px_rgba(0,31,63,0.12)] sm:h-52 sm:w-52">
+                <div className="absolute inset-0 rounded-full border border-[#D4AF37]/35 bg-gradient-to-br from-[#D4AF37]/15 via-white to-[#001F3F]/10 shadow-diffused-lg" />
                 <div className="absolute inset-3 rounded-full bg-gradient-to-br from-white to-[#F9FAFB] shadow-inner" />
-                <div className="relative flex flex-col items-center justify-center">
+                <div className="relative z-[1] flex flex-col items-center justify-center">
                   <b.icon className="mb-1 h-5 w-5 text-[#001F3F]/40" />
                   <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#001F3F]/50">
                     {b.label}
