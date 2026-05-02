@@ -100,7 +100,7 @@ const HeroSection = () => (
             </p>
           </Reveal>
           <Reveal delay={0.25}>
-            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-[#001F3F]/45">
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
               <span>For Enterprises</span>
               <span className="h-1 w-1 rounded-full bg-[#D4AF37]" />
               <span>Government</span>
@@ -187,7 +187,7 @@ const VideoSpotlightSection = () => (
           <Reveal delay={0.08}>
             <h2 className="font-serif text-3xl font-bold leading-[1.12] text-[#001F3F] sm:text-4xl md:text-[2.65rem]">
               From strategy sessions to{" "}
-              <span className="italic text-[#001F3F]/75">live workflows</span>{" "}
+              <span className="italic text-[#D4AF37]">live workflows</span>{" "}
               in minutes
             </h2>
           </Reveal>
@@ -347,7 +347,8 @@ const PillarsSection = () => (
             Core Capabilities
           </p>
           <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
-            Three pillars of operational excellence
+            Three pillars of{" "}
+            <span className="italic text-[#D4AF37]">operational excellence</span>
           </h2>
           <p className="mt-4 text-base text-[#001F3F]/50 sm:text-lg">
             Enterprise-grade systems engineered for reliability, speed, and scale.
@@ -518,7 +519,7 @@ const PopulationScaleSection = () => (
     <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
       <Reveal>
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-[#001F3F]/45 sm:text-[11px] sm:tracking-[0.22em]">
+          <p className="mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-[#D4AF37] sm:text-[11px] sm:tracking-[0.22em]">
             <span>For enterprises</span>
             <span className="hidden text-[#001F3F]/25 sm:inline" aria-hidden>
               |
@@ -601,7 +602,7 @@ const SecuritySection = () => (
           </p>
           <h2 className="mt-4 font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
             Enterprise-grade security.{" "}
-            <span className="italic text-[#001F3F]/60">Built in from day one.</span>
+            <span className="italic text-[#D4AF37]">Built in from day one.</span>
           </h2>
         </div>
       </Reveal>
