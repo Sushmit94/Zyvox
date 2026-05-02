@@ -60,7 +60,7 @@ const SiteShell = () => {
       </header>
 
       {/* ── Main Content ─────────────────────────────────────── */}
-      <main>
+      <main className="cursor-default [&_a]:cursor-pointer [&_button]:cursor-pointer [&_input:not([type='checkbox']):not([type='radio'])]:cursor-text [&_textarea]:cursor-text [&_select]:cursor-pointer">
         <Outlet />
       </main>
 

@@ -115,15 +115,32 @@ html {
   }
 }
 
-/* ── Marquee ───────────────────────────────────────────── */
+/* ── Marquee (seamless strip; keyframes here so animation always resolves) ── */
+@keyframes homepage-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  animation: homepage-marquee 105s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* ── Float / Rise ──────────────────────────────────────── */
@@ -286,13 +303,3 @@ html {
   animation: float-soft 6s ease-in-out infinite;
 }
 
-/* ── Logo greyscale on marquee ─────────────────────────── */
-.logo-grey {
-  filter: grayscale(100%) brightness(0.6);
-  opacity: 0.5;
-  transition: all 0.35s ease;
-}
-.logo-grey:hover {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
-}

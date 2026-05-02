@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const SPOTLIGHT_INTERVAL_MS = 8000;
+const SPOTLIGHT_INTERVAL_MS = 6000;
 
 type Voice = {
   quote: string;
@@ -253,16 +253,15 @@ const FeaturedSpotlightCarousel = ({
   scrollRef: ReturnType<typeof useScrollAnimation>;
 }) => {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [autoplayGeneration, setAutoplayGeneration] = useState(0);
 
   useEffect(() => {
-    if (paused || voices.length <= 1) return;
+    if (voices.length <= 1) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % voices.length);
     }, SPOTLIGHT_INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [paused, voices.length, autoplayGeneration]);
+  }, [voices.length, autoplayGeneration]);
 
   const goto = (i: number) => {
     setIndex(i);
@@ -274,8 +273,6 @@ const FeaturedSpotlightCarousel = ({
   return (
     <article
       ref={scrollRef.ref}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       className={`relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-50px_hsl(var(--brand-navy)/0.55)] scroll-fade-in ${
         scrollRef.isVisible ? "visible" : ""
       }`}
@@ -342,25 +339,6 @@ const FeaturedSpotlightCarousel = ({
             </motion.div>
           </AnimatePresence>
         </div>
-      </div>
-
-      {/* subtle progress sweep while autoplay runs */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 overflow-hidden bg-border/60"
-        aria-hidden="true"
-      >
-        {!paused ? (
-          <motion.div
-            key={`${index}-${autoplayGeneration}`}
-            className="h-full origin-left bg-brand-gold/70"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{
-              duration: SPOTLIGHT_INTERVAL_MS / 1000,
-              ease: "linear",
-            }}
-          />
-        ) : null}
       </div>
     </article>
   );

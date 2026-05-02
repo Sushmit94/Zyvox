@@ -1,8 +1,14 @@
 import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { ArrowRight, Shield, Cpu, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Globe2, Lock } from "lucide-react";
+import { ArrowRight, Shield, Zap, BadgeCheck, Phone, MessageSquare, Truck, Database, Link2, Settings, Globe2, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { cn } from "@/lib/utils";
+import marqueeAnthropic from "../../images/Anthropic_logo.svg";
+import marqueeN8n from "../../images/n8n.png";
+import marqueeOpenAi from "../../images/OpenAi.png";
+import marqueePlivo from "../../images/plivo.png";
+import marqueeRetell from "../../images/Retell.png";
 
 /* ─────────────────────────────────────────────
    Reveal-on-scroll wrapper (framer-motion)
@@ -160,43 +166,69 @@ const HeroSection = () => (
 /* ─────────────────────────────────────────────
    Section II: Moving Marquee — Tech Stack
    ───────────────────────────────────────────── */
+/** Wordmark-heavy logos — reference size in the marquee row. */
+const MARQUEE_IMG_DEFAULT =
+  "h-8 w-auto max-h-8 max-w-[11rem] object-contain object-center sm:h-10 sm:max-h-10 sm:max-w-[13rem]";
+/** Bigger footprint for denser/smaller-source marks (n8n, Retell, Plivo) — bounded so row/clipping stay stable. */
+const MARQUEE_IMG_BOOST =
+  "h-[3.5rem] w-auto max-h-[3.5rem] max-w-[17rem] object-contain object-center sm:h-[3.75rem] sm:max-h-[3.75rem] sm:max-w-[20rem] md:max-w-[21.5rem]";
+
 const techLogos = [
-  { name: "n8n", icon: "⚡" },
-  { name: "Retell AI", icon: "🎙️" },
-  { name: "OpenAI", icon: "🧠" },
-  { name: "Anthropic", icon: "🔬" },
-  { name: "Plivo", icon: "📞" },
-];
+  { name: "n8n", logoSrc: marqueeN8n, imgClassName: MARQUEE_IMG_BOOST },
+  { name: "Retell AI", logoSrc: marqueeRetell, imgClassName: MARQUEE_IMG_BOOST },
+  { name: "OpenAI", logoSrc: marqueeOpenAi },
+  { name: "Anthropic", logoSrc: marqueeAnthropic },
+  { name: "Plivo", logoSrc: marqueePlivo, imgClassName: MARQUEE_IMG_BOOST },
+] as const;
 
-const TechMarquee = () => (
-  <section className="relative border-y border-[#001F3F]/5 bg-[#F9FAFB] py-10 sm:py-14">
-    <Reveal>
-      <p className="mb-8 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#001F3F]/30">
-        Powered by world-class infrastructure
-      </p>
-    </Reveal>
+/** One marquee “half”: cycle logos until the row is comfortably wider than the viewport. */
+function buildContinuousMarqueeStrip(
+  items: readonly { name: string; logoSrc: string; imgClassName?: string }[],
+  repeatsPerHalf: number,
+): Array<{ name: string; logoSrc: string; imgClassName?: string; key: string }> {
+  const halfLen = repeatsPerHalf * items.length;
+  const half = Array.from({ length: halfLen }, (_, i) => {
+    const logo = items[i % items.length];
+    return { ...logo, key: `${i}` };
+  });
+  return [...half, ...half.map((logo, i) => ({ ...logo, key: `d-${i}` }))];
+}
 
-    <div className="relative overflow-hidden">
-      {/* Fade masks */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#F9FAFB] to-transparent sm:w-40" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#F9FAFB] to-transparent sm:w-40" />
+const TechMarquee = () => {
+  const strip = buildContinuousMarqueeStrip(techLogos, 10);
+  return (
+    <section className="relative border-y border-[#001F3F]/5 bg-white py-10 sm:py-14">
+      <Reveal>
+        <p className="mb-8 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-[#001F3F]/30">
+          Powered by world-class infrastructure
+        </p>
+      </Reveal>
 
-      <div className="marquee-track">
-        {[...techLogos, ...techLogos, ...techLogos, ...techLogos].map((logo, i) => (
-          <div
-            key={`${logo.name}-${i}`}
-            className="logo-grey mx-6 flex flex-shrink-0 cursor-default items-center gap-3 rounded-2xl border border-[#001F3F]/5 bg-white px-8 py-4 shadow-sm transition-all hover:border-[#D4AF37]/20 hover:shadow-gold-glow-sm sm:mx-8 sm:px-10 sm:py-5"
-          >
-            <span className="text-2xl">{logo.icon}</span>
-            <span className="font-sans text-base font-semibold text-[#001F3F] sm:text-lg">
-              {logo.name}
-            </span>
-          </div>
-        ))}
+      <div
+        className="relative overflow-hidden bg-white [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      >
+        <div className="marquee-track items-center">
+          {strip.map((logo) => (
+            <div
+              key={logo.key}
+              className="flex h-[4.75rem] min-h-[4.75rem] shrink-0 cursor-default items-center justify-center px-5 py-2 sm:h-[5.25rem] sm:min-h-[5.25rem] sm:px-8"
+            >
+              <img
+                src={logo.logoSrc}
+                alt={logo.name}
+                width={200}
+                height={64}
+                className={cn(MARQUEE_IMG_DEFAULT, logo.imgClassName)}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 /* ─────────────────────────────────────────────
    Section III: The Three Pillars (Vault Cards)
