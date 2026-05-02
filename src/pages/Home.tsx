@@ -546,62 +546,73 @@ const AIFirstFutureSection = () => (
    Section VI: Population-scale Applications
    ───────────────────────────────────────────── */
 const PopulationScaleSection = () => (
-  <section className="bg-white py-24 sm:py-32">
-    <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <Reveal direction="left">
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#D4AF37] via-[#D4AF37]/85 to-[#001F3F] p-12 shadow-diffused-lg sm:p-16">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5" />
-              <div className="relative flex items-center justify-center">
-                <div className="flex h-48 w-48 rotate-45 items-center justify-center rounded-3xl bg-white/30 backdrop-blur-sm sm:h-64 sm:w-64">
-                  <div className="h-32 w-32 rounded-2xl bg-white/40 sm:h-44 sm:w-44" />
+  <section className="relative overflow-hidden bg-[#F9FAFB] py-24 sm:py-32">
+    <div className="pointer-events-none absolute inset-0">
+      <div className="absolute -left-28 top-1/4 h-[380px] w-[380px] rounded-full bg-gradient-to-br from-[#D4AF37]/10 to-transparent blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-[320px] w-[320px] rounded-full bg-gradient-to-tl from-[#001F3F]/8 to-transparent blur-3xl" />
+    </div>
+    <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+      <Reveal>
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-[#001F3F]/45 sm:text-[11px] sm:tracking-[0.22em]">
+            <span>For enterprises</span>
+            <span className="hidden text-[#001F3F]/25 sm:inline" aria-hidden>
+              |
+            </span>
+            <span className="h-1 w-1 rounded-full bg-[#D4AF37] sm:hidden" aria-hidden />
+            <span>Government</span>
+            <span className="hidden text-[#001F3F]/25 sm:inline" aria-hidden>
+              |
+            </span>
+            <span className="h-1 w-1 rounded-full bg-[#D4AF37] sm:hidden" aria-hidden />
+            <span>Developers</span>
+          </p>
+          <h2 className="font-serif text-3xl font-bold leading-tight tracking-tight text-[#001F3F] sm:text-4xl md:text-[2.75rem] md:leading-[1.12]">
+            Full-Stack Sovereign AI Platform
+          </h2>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.1}>
+        <div className="mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused-lg sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
+            <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] shadow-inner sm:rounded-[1.35rem]">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#EA7A2F] via-[#F0B98A] to-[#DDD6F5]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/[0.12] via-transparent to-white/20" />
+                <div className="relative flex h-full w-full items-center justify-center p-10 sm:p-14">
+                  <div
+                    className="relative flex h-[min(56vw,14rem)] w-[min(56vw,14rem)] items-center justify-center sm:h-56 sm:w-56 md:h-64 md:w-64"
+                    aria-hidden
+                  >
+                    <div className="absolute h-[78%] w-[78%] rotate-45 rounded-[1.75rem] border border-white/45 bg-white/20 shadow-[0_8px_32px_rgba(0,31,63,0.08)] backdrop-blur-xl" />
+                    <div className="absolute h-[48%] w-[48%] rotate-45 rounded-xl border border-white/35 bg-white/15 backdrop-blur-md" />
+                  </div>
                 </div>
               </div>
-              <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-md">
-                <Globe2 className="h-3.5 w-3.5 text-white" />
-                <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
-                  Population-scale
-                </span>
+            </div>
+
+            <div>
+              <h3 className="font-serif text-xl font-bold text-[#001F3F] sm:text-2xl md:text-[1.65rem]">
+                Population-scale Applications
+              </h3>
+              <div className="mt-6 space-y-5 text-sm leading-relaxed text-[#001F3F]/60 sm:text-base sm:leading-[1.65]">
+                <p>
+                  Building products <strong className="font-semibold text-[#001F3F]">World</strong>{" "}
+                  can use.
+                </p>
+                <p>
+                  Conversational agents fluent in{" "}
+                  <strong className="font-semibold text-[#001F3F]">every</strong> languages.
+                </p>
+                <p>
+                  Platforms that run enterprise workflows from start to finish.
+                </p>
               </div>
             </div>
           </div>
-        </Reveal>
-
-        <Reveal delay={0.15} direction="right">
-          <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-              Scale of Ambition
-            </p>
-            <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-[#001F3F] sm:text-4xl md:text-[2.75rem]">
-              Population-scale{" "}
-              <span className="italic">applications.</span>
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-[#001F3F]/60 sm:text-lg">
-              Building products the world can use. Conversational agents fluent in
-              every language. Platforms that run enterprise workflows from start to
-              finish — no hand-offs, no dropped context, no stitched-together hacks.
-            </p>
-
-            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#001F3F]/[0.08] pt-6">
-              {[
-                { value: "120+", label: "Languages" },
-                { value: "10M+", label: "Interactions/mo" },
-                { value: "24/7", label: "Live coverage" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <p className="font-mono text-2xl font-bold text-[#001F3F] sm:text-3xl">
-                    {s.value}
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-[#001F3F]/40">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </div>
   </section>
 );
