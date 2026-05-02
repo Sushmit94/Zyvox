@@ -1,81 +1,68 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Quote } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const featured = {
-  quote:
-    "Zyvox didn't sell us software. They rebuilt how our intake function thinks. Every call, every missed inquiry, every follow-up now lives inside a rhythm we can actually measure — and that has changed the economics of our front desk.",
-  name: "Priya Menon",
-  role: "Director of Operations",
-  company: "Saanvi Dental Group",
-  location: "Toronto, Canada",
-  image: "/images/testimonial-client-1.jpg",
-};
+const SPOTLIGHT_INTERVAL_MS = 6000;
 
 type Voice = {
   quote: string;
   name: string;
   role: string;
-  company: string;
   location: string;
   initials: string;
-  image?: string;
-  accent?: "navy" | "gold";
 };
 
 const voices: Voice[] = [
   {
     quote:
+      "Zyvox didn't sell us software. They rebuilt how our intake function thinks. Every call, every missed inquiry, every follow-up now lives inside a rhythm we can actually measure — and that has changed the economics of our front desk.",
+    name: "Priya Menon",
+    role: "Director of Operations",
+    location: "Bengaluru, India",
+    initials: "PM",
+  },
+  {
+    quote:
       "We had run three vendors through this problem before Zyvox. None of them owned the result. Zyvox runs the operation, not just the tooling — and that's the difference we paid for.",
-    name: "James Whitford",
+    name: "Vikram Iyer",
     role: "Chief Operating Officer",
-    company: "Northshore Home Services",
-    location: "New York, USA",
-    initials: "JW",
-    image: "/images/testimonial-client-2.jpg",
-    accent: "gold",
+    location: "Mumbai, India",
+    initials: "VI",
   },
   {
     quote:
       "Their dispatch logic is the cleanest implementation I've reviewed in this industry. It respects how our crews actually work in the field, instead of forcing them into a shape the software prefers.",
     name: "Aarav Khurana",
     role: "Head of Field Operations",
-    company: "Meridian Facility Partners",
-    location: "London, United Kingdom",
+    location: "Hyderabad, India",
     initials: "AK",
-    accent: "navy",
   },
   {
     quote:
       "The thing I keep returning to is how unflashy their work is. There is no theatre. The voice agent answers the phone, the CRM updates itself, the team trusts the numbers. That is rare.",
-    name: "Hannah Lindqvist",
+    name: "Ananya Sharma",
     role: "Customer Experience Lead",
-    company: "Brightline Dental Collective",
-    location: "Stockholm, Sweden",
-    initials: "HL",
-    image: "/images/testimonial-client-3.jpg",
-    accent: "gold",
+    location: "Pune, India",
+    initials: "AS",
   },
   {
     quote:
       "We expected an automation vendor. We got an operating partner. They sat in our weekly review for the first six weeks, and the system they built reflects that depth.",
     name: "Rohan Mehta",
     role: "VP of Operations",
-    company: "Halevy Multi-Site Group",
-    location: "Singapore",
+    location: "New Delhi, India",
     initials: "RM",
-    accent: "navy",
   },
   {
     quote:
       "Implementation was deliberate, almost slow at first — and then everything compounded. Three months in, after-hours inquiries stopped leaking and our schedule finally felt full instead of busy.",
-    name: "Eleanor Whitcombe",
+    name: "Meera Krishnan",
     role: "Practice Director",
-    company: "Cohen & Whitcombe Advisory",
-    location: "Dublin, Ireland",
-    initials: "EW",
-    accent: "gold",
+    location: "Chennai, India",
+    initials: "MK",
   },
 ];
 
@@ -138,50 +125,7 @@ const Testimonials = () => {
       </section>
 
       <section className="container py-14 sm:py-16 md:py-20">
-        <article
-          ref={featuredAnim.ref}
-          className={`relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-50px_hsl(var(--brand-navy)/0.55)] scroll-fade-in ${
-            featuredAnim.isVisible ? "visible" : ""
-          }`}
-        >
-          <div className="grid gap-0 md:grid-cols-[1.35fr_1fr]">
-            <div className="relative p-8 sm:p-12 md:p-14">
-              <Quote
-                aria-hidden="true"
-                className="absolute -top-2 -left-1 h-20 w-20 text-brand-gold/30 sm:h-28 sm:w-28"
-              />
-              <p className="relative font-serif text-2xl leading-[1.35] text-brand-navy sm:text-3xl md:text-[2.05rem]">
-                &ldquo;{featured.quote}&rdquo;
-              </p>
-
-              <div className="mt-10 flex flex-col gap-4 border-t border-border/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-base font-semibold text-foreground">{featured.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {featured.role} &middot; {featured.company}
-                  </p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
-                    {featured.location}
-                  </p>
-                </div>
-                <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent sm:block" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                  Featured engagement
-                </span>
-              </div>
-            </div>
-
-            <div className="relative hidden md:block">
-              <img
-                src={featured.image}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-brand-navy/10 to-card" />
-            </div>
-          </div>
-        </article>
+        <FeaturedSpotlightCarousel voices={voices} scrollRef={featuredAnim} />
       </section>
 
       <section className="container pb-14 sm:pb-16 md:pb-20">
@@ -191,7 +135,7 @@ const Testimonials = () => {
               The room of voices
             </p>
             <h2 className="mt-3 text-3xl font-bold text-brand-navy sm:text-4xl">
-              Five operators. Five operations. One throughline.
+              Six operators. Six operations. One throughline.
             </h2>
           </div>
         </div>
@@ -294,25 +238,122 @@ const Testimonials = () => {
   );
 };
 
+const FeaturedSpotlightCarousel = ({
+  voices,
+  scrollRef,
+}: {
+  voices: Voice[];
+  scrollRef: ReturnType<typeof useScrollAnimation>;
+}) => {
+  const [index, setIndex] = useState(0);
+  const [autoplayGeneration, setAutoplayGeneration] = useState(0);
+
+  useEffect(() => {
+    if (voices.length <= 1) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % voices.length);
+    }, SPOTLIGHT_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [voices.length, autoplayGeneration]);
+
+  const goto = (i: number) => {
+    setIndex(i);
+    setAutoplayGeneration((g) => g + 1);
+  };
+
+  const current = voices[index]!;
+
+  return (
+    <article
+      ref={scrollRef.ref}
+      className={`relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-50px_hsl(var(--brand-navy)/0.55)] scroll-fade-in ${
+        scrollRef.isVisible ? "visible" : ""
+      }`}
+    >
+      <div className="relative px-6 py-8 sm:px-10 sm:py-11 md:px-14 md:py-14 lg:px-16 lg:py-16">
+        <Quote
+          aria-hidden="true"
+          className="pointer-events-none absolute left-4 top-4 h-16 w-16 text-brand-gold/25 sm:left-8 sm:top-6 sm:h-20 sm:w-20 md:h-24 md:w-24"
+        />
+
+        <div className="relative min-h-[min(320px,max-content)] w-full">
+
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={current.name}
+              role="article"
+              aria-live="polite"
+              aria-atomic="true"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full max-w-none"
+            >
+              <p className="font-serif text-2xl leading-[1.4] text-brand-navy sm:text-3xl md:text-[2.05rem] md:leading-[1.35] lg:text-[2.15rem]">
+                &ldquo;{current.quote}&rdquo;
+              </p>
+
+              <div className="mt-10 flex flex-col gap-6 border-t border-border/70 pt-6 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+                <div>
+                  <p className="text-base font-semibold text-foreground">{current.name}</p>
+                  <p className="text-sm text-muted-foreground">{current.role}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
+                    {current.location}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-end lg:gap-4">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Featured engagement
+                  </span>
+                  <div
+                    className="flex gap-2"
+                    role="tablist"
+                    aria-label="Featured testimonial position"
+                  >
+                    {voices.map((v, i) => (
+                      <button
+                        key={v.name}
+                        type="button"
+                        role="tab"
+                        aria-selected={i === index}
+                        aria-label={`Show testimonial ${i + 1} of ${voices.length}`}
+                        onClick={() => goto(i)}
+                        className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                          i === index
+                            ? "w-8 bg-brand-gold"
+                            : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </article>
+  );
+};
+
 const VoiceCard = ({ voice, index }: { voice: Voice; index: number }) => {
   const { ref, isVisible } = useScrollAnimation();
-  const accent = voice.accent ?? (index % 2 === 0 ? "navy" : "gold");
-  const accentClass =
-    accent === "gold"
-      ? "before:bg-brand-gold"
-      : "before:bg-brand-navy";
+  /** Stripe alternates gold → navy → gold… by card order in the grid. */
+  const stripeGold = index % 2 === 0;
+  const stripeClass = stripeGold ? "before:bg-brand-gold" : "before:bg-brand-navy";
 
   return (
     <article
       ref={ref}
-      className={`interactive-card relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-7 before:absolute before:left-0 before:top-0 before:h-1 before:w-full ${accentClass} scroll-fade-in ${
+      className={`interactive-card relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-7 before:absolute before:left-0 before:top-0 before:h-1 before:w-full ${stripeClass} scroll-fade-in ${
         isVisible ? "visible" : ""
       }`}
       style={{ transitionDelay: `${(index % 3) * 80}ms` }}
     >
       <Quote
         aria-hidden="true"
-        className={`mb-5 h-7 w-7 ${accent === "gold" ? "text-brand-gold" : "text-brand-navy"}`}
+        className={`mb-5 h-7 w-7 ${stripeGold ? "text-brand-gold" : "text-brand-navy"}`}
       />
 
       <p className="font-serif text-lg leading-relaxed text-foreground sm:text-[1.18rem]">
@@ -321,29 +362,18 @@ const VoiceCard = ({ voice, index }: { voice: Voice; index: number }) => {
 
       <div className="mt-auto pt-7">
         <div className="flex items-center gap-4">
-          {voice.image ? (
-            <img
-              src={voice.image}
-              alt=""
-              aria-hidden="true"
-              className="h-12 w-12 rounded-full border border-border object-cover"
-            />
-          ) : (
-            <div
-              className={`flex h-12 w-12 items-center justify-center rounded-full font-serif text-base font-bold ${
-                accent === "gold"
-                  ? "bg-brand-gold/15 text-brand-gold"
-                  : "bg-brand-navy/10 text-brand-navy"
-              }`}
-            >
-              {voice.initials}
-            </div>
-          )}
+          <div
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border/80 font-serif text-base font-bold ${
+              stripeGold
+                ? "bg-brand-gold/15 text-brand-gold"
+                : "bg-brand-navy/10 text-brand-navy"
+            }`}
+          >
+            {voice.initials}
+          </div>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-foreground">{voice.name}</p>
-            <p className="truncate text-xs text-muted-foreground">
-              {voice.role} &middot; {voice.company}
-            </p>
+            <p className="truncate text-xs text-muted-foreground">{voice.role}</p>
             <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-gold">
               {voice.location}
             </p>

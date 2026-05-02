@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"ls src/ src/pages/ src/pages/testimonials/ 2>&1\",\"description\":\"List src directory structure\"}",
-  "error": "Exit code 2\nls: cannot access 'src/pages/testimonials/': No such file or directory\nsrc/:\nApp.css\nApp.tsx\nassets\ncomponents\nhooks\nindex.css\nlib\nmain.tsx\npages\ntest\nvite-env.d.ts\n\nsrc/pages/:\nAbout.tsx\nContact.tsx\nFounders.tsx\nHome.tsx\nIndex.tsx\nIndustries.tsx\nNotFound.tsx\nPricing.tsx\nServices.tsx\nTestimonials.tsx",
-  "timestamp": "2026-05-01T09:53:23.349Z",
-  "retry_count": 1
-}

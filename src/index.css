@@ -115,15 +115,32 @@ html {
   }
 }
 
-/* ── Marquee ───────────────────────────────────────────── */
+/* ── Marquee (seamless strip; keyframes here so animation always resolves) ── */
+@keyframes homepage-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  animation: homepage-marquee 105s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* ── Float / Rise ──────────────────────────────────────── */
@@ -236,6 +253,8 @@ html {
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --home-topline-start: #d4af37;
+  --home-topline-end: rgba(212, 175, 55, 0.35);
 }
 
 .vault-card::before {
@@ -245,7 +264,7 @@ html {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.3));
+  background: linear-gradient(90deg, var(--home-topline-start), var(--home-topline-end));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -259,6 +278,45 @@ html {
   transform: translateY(-8px);
   box-shadow: 0 30px 60px -20px rgba(0, 31, 63, 0.22);
   border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* Navy hover top accent (pair with .vault-card or .card-gold-topline) */
+.home-card-topline-navy {
+  --home-topline-start: #001f3f;
+  --home-topline-end: rgba(0, 31, 63, 0.35);
+}
+
+/* Gold top accent for large section cards — same reveal-on-hover as .vault-card */
+.card-gold-topline {
+  position: relative;
+  overflow: hidden;
+  --home-topline-start: #d4af37;
+  --home-topline-end: rgba(212, 175, 55, 0.35);
+}
+
+/* Override gold vars when navy modifier is paired (single-class navy loses to rule above). */
+.card-gold-topline.home-card-topline-navy {
+  --home-topline-start: #001f3f;
+  --home-topline-end: rgba(0, 31, 63, 0.35);
+}
+
+.card-gold-topline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--home-topline-start), var(--home-topline-end));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-gold-topline:hover::before {
+  transform: scaleX(1);
 }
 
 /* ── Bento Grid ────────────────────────────────────────── */
@@ -286,13 +344,3 @@ html {
   animation: float-soft 6s ease-in-out infinite;
 }
 
-/* ── Logo greyscale on marquee ─────────────────────────── */
-.logo-grey {
-  filter: grayscale(100%) brightness(0.6);
-  opacity: 0.5;
-  transition: all 0.35s ease;
-}
-.logo-grey:hover {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
-}
