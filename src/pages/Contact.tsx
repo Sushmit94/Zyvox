@@ -9,6 +9,8 @@ type ContactPayload = {
   message: string;
 };
 
+
+
 const initialPayload: ContactPayload = {
   name: "",
   email: "",
@@ -71,6 +73,9 @@ const Contact = () => {
             </a>
             <a href="https://www.linkedin.com/company/zyvox-ai/" target="_blank" rel="noreferrer" className="block rounded-lg bg-secondary px-4 py-3 hover:text-foreground">
               LinkedIn: zyvox-ai
+            </a>
+            <a href="tel:+91-7078061233" className="block rounded-lg bg-secondary px-4 py-3 hover:text-foreground">
+              Contact:+91-7078061233
             </a>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
