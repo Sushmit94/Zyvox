@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="vp-bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#001F3F" stop-opacity="0.06"/>
+      <stop offset="45%" stop-color="#F9FAFB"/>
+      <stop offset="100%" stop-color="#001F3F" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="vp-ring" x1="960" y1="340" x2="960" y2="740" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#vp-bg)"/>
+  <rect x="72" y="72" width="1776" height="936" rx="48" fill="#FFFFFF" stroke="#001F3F" stroke-opacity="0.08" stroke-width="2"/>
+  <circle cx="960" cy="540" r="120" fill="none" stroke="url(#vp-ring)" stroke-width="3"/>
+  <path d="M930 465 L1035 540 L930 615 Z" fill="#001F3F" fill-opacity="0.2"/>
+  <path d="M935 475 L1025 540 L935 605 Z" fill="#D4AF37" fill-opacity="0.85"/>
+  <text x="960" y="720" text-anchor="middle" fill="#001F3F" fill-opacity="0.45" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="0.02em">Your video here</text>
+  <text x="960" y="768" text-anchor="middle" fill="#001F3F" fill-opacity="0.28" font-family="ui-monospace, monospace" font-size="20" font-weight="500" letter-spacing="0.28em">1920 × 1080 · 1669</text>
+</svg>

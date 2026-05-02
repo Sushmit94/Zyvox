@@ -13,7 +13,6 @@ type Voice = {
   role: string;
   location: string;
   initials: string;
-  accent?: "navy" | "gold";
 };
 
 const voices: Voice[] = [
@@ -24,7 +23,6 @@ const voices: Voice[] = [
     role: "Director of Operations",
     location: "Bengaluru, India",
     initials: "PM",
-    accent: "gold",
   },
   {
     quote:
@@ -33,7 +31,6 @@ const voices: Voice[] = [
     role: "Chief Operating Officer",
     location: "Mumbai, India",
     initials: "VI",
-    accent: "gold",
   },
   {
     quote:
@@ -42,7 +39,6 @@ const voices: Voice[] = [
     role: "Head of Field Operations",
     location: "Hyderabad, India",
     initials: "AK",
-    accent: "navy",
   },
   {
     quote:
@@ -51,7 +47,6 @@ const voices: Voice[] = [
     role: "Customer Experience Lead",
     location: "Pune, India",
     initials: "AS",
-    accent: "gold",
   },
   {
     quote:
@@ -60,7 +55,6 @@ const voices: Voice[] = [
     role: "VP of Operations",
     location: "New Delhi, India",
     initials: "RM",
-    accent: "navy",
   },
   {
     quote:
@@ -69,7 +63,6 @@ const voices: Voice[] = [
     role: "Practice Director",
     location: "Chennai, India",
     initials: "MK",
-    accent: "gold",
   },
 ];
 
@@ -346,23 +339,21 @@ const FeaturedSpotlightCarousel = ({
 
 const VoiceCard = ({ voice, index }: { voice: Voice; index: number }) => {
   const { ref, isVisible } = useScrollAnimation();
-  const accent = voice.accent ?? (index % 2 === 0 ? "navy" : "gold");
-  const accentClass =
-    accent === "gold"
-      ? "before:bg-brand-gold"
-      : "before:bg-brand-navy";
+  /** Stripe alternates gold → navy → gold… by card order in the grid. */
+  const stripeGold = index % 2 === 0;
+  const stripeClass = stripeGold ? "before:bg-brand-gold" : "before:bg-brand-navy";
 
   return (
     <article
       ref={ref}
-      className={`interactive-card relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-7 before:absolute before:left-0 before:top-0 before:h-1 before:w-full ${accentClass} scroll-fade-in ${
+      className={`interactive-card relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-7 before:absolute before:left-0 before:top-0 before:h-1 before:w-full ${stripeClass} scroll-fade-in ${
         isVisible ? "visible" : ""
       }`}
       style={{ transitionDelay: `${(index % 3) * 80}ms` }}
     >
       <Quote
         aria-hidden="true"
-        className={`mb-5 h-7 w-7 ${accent === "gold" ? "text-brand-gold" : "text-brand-navy"}`}
+        className={`mb-5 h-7 w-7 ${stripeGold ? "text-brand-gold" : "text-brand-navy"}`}
       />
 
       <p className="font-serif text-lg leading-relaxed text-foreground sm:text-[1.18rem]">
@@ -373,7 +364,7 @@ const VoiceCard = ({ voice, index }: { voice: Voice; index: number }) => {
         <div className="flex items-center gap-4">
           <div
             className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border/80 font-serif text-base font-bold ${
-              accent === "gold"
+              stripeGold
                 ? "bg-brand-gold/15 text-brand-gold"
                 : "bg-brand-navy/10 text-brand-navy"
             }`}
