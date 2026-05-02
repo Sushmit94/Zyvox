@@ -253,6 +253,8 @@ html {
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --home-topline-start: #d4af37;
+  --home-topline-end: rgba(212, 175, 55, 0.35);
 }
 
 .vault-card::before {
@@ -262,7 +264,7 @@ html {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.3));
+  background: linear-gradient(90deg, var(--home-topline-start), var(--home-topline-end));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -278,10 +280,24 @@ html {
   border-color: rgba(212, 175, 55, 0.25);
 }
 
+/* Navy hover top accent (pair with .vault-card or .card-gold-topline) */
+.home-card-topline-navy {
+  --home-topline-start: #001f3f;
+  --home-topline-end: rgba(0, 31, 63, 0.35);
+}
+
 /* Gold top accent for large section cards — same reveal-on-hover as .vault-card */
 .card-gold-topline {
   position: relative;
   overflow: hidden;
+  --home-topline-start: #d4af37;
+  --home-topline-end: rgba(212, 175, 55, 0.35);
+}
+
+/* Override gold vars when navy modifier is paired (single-class navy loses to rule above). */
+.card-gold-topline.home-card-topline-navy {
+  --home-topline-start: #001f3f;
+  --home-topline-end: rgba(0, 31, 63, 0.35);
 }
 
 .card-gold-topline::before {
@@ -291,7 +307,7 @@ html {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.3));
+  background: linear-gradient(90deg, var(--home-topline-start), var(--home-topline-end));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);

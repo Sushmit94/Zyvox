@@ -10,6 +10,10 @@ import marqueeOpenAi from "../../images/OpenAi.png";
 import marqueePlivo from "../../images/plivo.png";
 import marqueeRetell from "../../images/Retell.png";
 
+/** Odd-index homepage cards use navy hover top sweep; even use gold (default). */
+const homeCardToplineNavyClass = (globalIndex: number) =>
+  globalIndex % 2 === 1 ? "home-card-topline-navy" : "";
+
 /* ─────────────────────────────────────────────
    Reveal-on-scroll wrapper (framer-motion)
    ───────────────────────────────────────────── */
@@ -354,7 +358,12 @@ const PillarsSection = () => (
       <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-8">
         {pillars.map((pillar, idx) => (
           <Reveal key={pillar.title} delay={idx * 0.12}>
-            <article className="vault-card group flex h-full flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-7 shadow-diffused sm:p-8">
+            <article
+              className={cn(
+                "vault-card group flex h-full flex-col rounded-3xl border border-[#001F3F]/[0.06] bg-white p-7 shadow-diffused sm:p-8",
+                homeCardToplineNavyClass(idx),
+              )}
+            >
               {/* Icon cluster */}
               <div className="mb-6 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#001F3F] shadow-lg">
@@ -459,7 +468,9 @@ const AIFirstFutureSection = () => (
       </Reveal>
 
       <Reveal delay={0.12}>
-        <div className="card-gold-topline mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+        <div
+          className="card-gold-topline relative mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]"
+        >
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
             <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
               <div className="overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] bg-[#F0F4FF] shadow-inner sm:rounded-[1.35rem]">
@@ -521,13 +532,14 @@ const PopulationScaleSection = () => (
             <span>Developers</span>
           </p>
           <h2 className="font-serif text-3xl font-bold leading-tight tracking-tight text-[#001F3F] sm:text-4xl md:text-[2.75rem] md:leading-[1.12]">
-            Full-Stack Sovereign AI Platform
+            Full-Stack Sovereign{" "}
+            <span className="italic text-[#D4AF37]">AI Platform</span>
           </h2>
         </div>
       </Reveal>
 
       <Reveal delay={0.1}>
-        <div className="card-gold-topline mx-auto mt-12 max-w-5xl rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused-lg transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
+        <div className="home-card-topline-navy card-gold-topline relative mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] border border-[#001F3F]/[0.06] bg-white p-6 shadow-diffused-lg transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl sm:mt-14 sm:p-8 md:p-10 lg:rounded-[2.25rem]">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
             <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
               <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#001F3F]/[0.05] shadow-inner sm:rounded-[1.35rem]">
