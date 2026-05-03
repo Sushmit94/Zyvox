@@ -32,7 +32,7 @@ Tagline / Mission        : "The automation infrastructure powering the next
 Positioning              : Enterprise-grade AI automation partner for 
                             mid-market and scaling businesses.
 Visual Identity          : Based upon the logo colours. Navy, White, Gold.
-Primary Market           : India & Australia services enterprises.
+Primary Market           : Global services enterprises.
 
 
 4. SERVICES
@@ -104,12 +104,12 @@ Other Licenses           : N/A
 
 10. GOALS & DIRECTION
 ────────────────────────────────────────────────────────────────────────────────
-Immediate Priority       : Acquire first paying Indian & Australian client
+Immediate Priority       : Acquire first paying Global client
                            Complete website 
                            Operationalize voice AI infrastructure
 Short-Term (1 Year)      : Grow the company — build client base, 
                            establish recurring retainer revenue
-Target Client Profile    : VP of Operations / COO at Indian & Australian mid-market 
+Target Client Profile    : VP of Operations / COO at Global mid-market 
                            services Businesses.
 Representative Prospects : DaBella, Cinch, Best Home Services (and similar), etc.
 

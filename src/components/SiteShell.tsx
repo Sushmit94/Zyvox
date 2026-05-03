@@ -6,7 +6,7 @@ const links = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
   { label: "Testimonials", to: "/testimonials" },
-  { label: "About", to: "/about" },
+  { label: "About Us", to: "/about" },
 ];
 
 const linkClasses = ({ isActive }: { isActive: boolean }) =>
@@ -41,7 +41,7 @@ const SiteShell = () => {
           </nav>
 
           <NavLink to="/contact" className="btn-primary-gold hidden rounded-xl px-5 py-2.5 text-sm font-semibold md:inline-flex">
-            Contact
+            Contact Us
           </NavLink>
 
           <button className="md:hidden" onClick={() => setOpen((prev) => !prev)} aria-label="Toggle menu">
@@ -58,7 +58,7 @@ const SiteShell = () => {
                 </NavLink>
               ))}
               <NavLink to="/contact" onClick={() => setOpen(false)} className="btn-primary-gold mt-2 inline-flex justify-center rounded-xl px-4 py-2.5 text-sm font-semibold">
-                Contact
+                Contact Us
               </NavLink>
             </div>
           </div>
@@ -104,8 +104,8 @@ const SiteShell = () => {
               <ul className="mt-4 space-y-2 text-sm text-[#001F3F]/70">
                 <li><NavLink to="/services" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Services</NavLink></li>
                 <li><NavLink to="/testimonials" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Testimonials</NavLink></li>
-                <li><NavLink to="/about" className="transition-colors hover:text-[#001F3F] hover:font-semibold">About</NavLink></li>
-                <li><NavLink to="/contact" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Contact</NavLink></li>
+                <li><NavLink to="/about" className="transition-colors hover:text-[#001F3F] hover:font-semibold">About Us</NavLink></li>
+                <li><NavLink to="/contact" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Contact Us</NavLink></li>
               </ul>
             </div>
 
