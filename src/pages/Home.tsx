@@ -9,6 +9,7 @@ import marqueeN8n from "../../images/n8n.png";
 import marqueeOpenAi from "../../images/OpenAi.png";
 import marqueePlivo from "../../images/plivo.png";
 import marqueeRetell from "../../images/Retell.png";
+import demoVideo from "../../images/demo video.mp4";
 
 /** Odd-index homepage cards use navy hover top sweep; even use gold (default). */
 const homeCardToplineNavyClass = (globalIndex: number) =>
@@ -209,14 +210,13 @@ const VideoSpotlightSection = () => (
           <figure className="relative mx-auto w-full max-w-[920px] lg:mx-0 lg:max-w-none">
             <div className="relative overflow-hidden rounded-3xl border border-[#001F3F]/[0.08] bg-white shadow-diffused-lg">
               <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-tr from-[#D4AF37]/[0.06] via-transparent to-transparent" />
-              <img
-                src="/images/video-placeholder.svg"
-                alt=""
-                width={1920}
-                height={1080}
+              <video
+                src={demoVideo}
                 className="aspect-video w-full object-cover"
-                loading="lazy"
-                decoding="async"
+                autoPlay
+                controls
+                loop
+                playsInline
               />
             </div>
             <figcaption className="sr-only">
