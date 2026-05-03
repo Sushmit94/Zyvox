@@ -27,8 +27,8 @@ const SiteShell = () => {
       <header className="sticky top-0 z-50 border-b border-[#001F3F]/5 glass-nav">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 sm:px-8 md:h-20">
           <NavLink to="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <div className="h-10 w-44 overflow-hidden rounded-md sm:h-12 sm:w-56 md:h-14 md:w-72">
-              <img src="/images/logo.png" alt="Zyvox Automations" className="h-full w-full object-contain" />
+            <div className="flex h-10 w-44 items-center justify-center rounded-md sm:h-12 sm:w-56 md:h-14 md:w-72">
+              <img src="/images/logo.png" alt="Zyvox Automations" className="h-full w-full object-contain scale-[1.35] origin-center" />
             </div>
           </NavLink>
 
