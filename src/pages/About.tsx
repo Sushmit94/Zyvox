@@ -40,6 +40,7 @@ const founders = [
     name: "Kunwar Zaid",
     role: "Founder & CEO",
     initials: "KZ",
+    image: "/images/kunwar-zaid.jpg",
     linkedin: "https://www.linkedin.com/in/kunwarzaid-zyvox",
     bio: "Leads Zyvox's strategic vision and enterprise partnerships across India and Australia.",
   },
@@ -238,10 +239,16 @@ const About = () => {
               className={`scroll-fade-in scroll-fade-in-delay-${i + 1
                 } group relative rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-brand-gold/40 hover:shadow-lg sm:p-8`}
             >
-              {/* Avatar placeholder with initials */}
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-navy text-2xl font-bold text-primary-foreground ring-4 ring-brand-gold/20 transition-all group-hover:ring-brand-gold/50">
-                {founder.initials}
-              </div>
+              {/* Avatar placeholder with initials or Image */}
+              {founder.image ? (
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ring-4 ring-brand-gold/20 transition-all group-hover:ring-brand-gold/50 overflow-hidden bg-brand-navy">
+                  <img src={founder.image} alt={founder.name} className="h-full w-full object-cover" />
+                </div>
+              ) : (
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-navy text-2xl font-bold text-primary-foreground ring-4 ring-brand-gold/20 transition-all group-hover:ring-brand-gold/50">
+                  {founder.initials}
+                </div>
+              )}
 
               <h3 className="mt-5 text-xl font-semibold text-foreground">
                 {founder.name}
