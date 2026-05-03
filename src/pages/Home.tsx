@@ -488,7 +488,6 @@ const AIFirstFutureSection = () => (
             <ul className="flex flex-col gap-8 sm:gap-9">
               {aiFirstFeatures.map((item) => (
                 <li key={item.title} className="flex gap-3.5 sm:gap-4">
-                  <AiFirstStarBullet className="mt-1" />
                   <div>
                     <h3 className="font-serif text-lg font-bold text-[#001F3F] sm:text-xl">
                       {item.title}
@@ -650,8 +649,8 @@ const CTASection = () => (
     <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
       <Reveal>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#001F3F]">
-            <Shield className="h-6 w-6 text-[#D4AF37]" />
+          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center">
+            <img src="/images/favicon.png" alt="Zyvox" className="h-full w-full object-contain scale-[1.25] mix-blend-multiply" />
           </div>
           <h2 className="font-serif text-3xl font-bold text-[#001F3F] sm:text-4xl md:text-5xl">
             Ready to build infrastructure that scales?
