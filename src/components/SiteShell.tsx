@@ -71,91 +71,91 @@ const SiteShell = () => {
       </main>
 
       {/* ── Premium Footer ───────────────────────────────────── */}
-      <footer className="border-t border-[#001F3F]/5 bg-[#001F3F] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-          <div className="grid gap-12 text-center md:text-left lg:grid-cols-4">
-            {/* Brand */}
-            <div className="lg:col-span-1">
-              <div className="mx-auto h-14 w-60 overflow-hidden rounded-md md:mx-0 md:h-16 md:w-72">
-                <img src="/images/main_logo.PNG" alt="Zyvox Automations" className="h-full w-full object-contain brightness-0 invert" />
+      <footer className="border-t border-[#001F3F]/5 bg-[#F7E7CE] text-[#001F3F]">
+        <div className="mx-auto max-w-[1440px] px-6 py-8 sm:px-8 sm:py-10">
+          <div className="grid gap-8 text-center md:text-left lg:grid-cols-5 lg:gap-12">
+            {/* Newsletter */}
+            <div className="lg:col-span-2">
+              <div className="mx-auto max-w-sm md:mx-0">
+                <h4 className="text-sm font-bold text-[#001F3F]">Subscribe to news updates*</h4>
+                <form className="mt-3 flex flex-col gap-2.5 text-left" onSubmit={(e) => e.preventDefault()}>
+                  <input 
+                    type="email" 
+                    placeholder="Your email address" 
+                    required
+                    className="w-full rounded-md border border-[#001F3F]/30 bg-white/40 px-3 py-2 text-sm text-[#001F3F] placeholder-[#001F3F]/50 outline-none transition-colors focus:border-[#001F3F] focus:bg-transparent"
+                  />
+                  <p className="text-[10px] leading-tight text-[#001F3F]/60">
+                    * By subscribing, you agree to our <NavLink to="/privacy" className="underline hover:text-[#001F3F]">Privacy Notice</NavLink>.
+                  </p>
+                  <button 
+                    type="submit" 
+                    className="mt-1 inline-flex w-fit items-center justify-center gap-2 rounded-md bg-[#001F3F] px-5 py-2 text-xs font-bold tracking-[0.1em] text-white transition-all hover:bg-[#001F3F]/80 active:scale-95 md:justify-start"
+                  >
+                    SUBSCRIBE →
+                  </button>
+                </form>
               </div>
-              <p className="mx-auto mt-5 max-w-xs text-sm leading-relaxed text-white/40 md:mx-0">
-                AI-powered infrastructure that scales mid-market enterprises across India and Australia.
-              </p>
             </div>
 
             {/* Explore */}
             <div>
-              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Explore</h3>
-              <ul className="mt-5 space-y-3 text-sm text-white/50">
-                <li><NavLink to="/services" className="transition-colors hover:text-white">Services</NavLink></li>
-                <li><NavLink to="/testimonials" className="transition-colors hover:text-white">Testimonials</NavLink></li>
-                <li><NavLink to="/about" className="transition-colors hover:text-white">About</NavLink></li>
-                <li><NavLink to="/contact" className="transition-colors hover:text-white">Contact</NavLink></li>
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#001F3F]">Explore</h3>
+              <ul className="mt-4 space-y-2 text-sm text-[#001F3F]/70">
+                <li><NavLink to="/services" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Services</NavLink></li>
+                <li><NavLink to="/testimonials" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Testimonials</NavLink></li>
+                <li><NavLink to="/about" className="transition-colors hover:text-[#001F3F] hover:font-semibold">About</NavLink></li>
+                <li><NavLink to="/contact" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Contact</NavLink></li>
               </ul>
             </div>
 
-            {/* Entity Details */}
+            {/* Legal (Replacing Entity Details) */}
             <div>
-              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Entity Details</h3>
-              <ul className="mt-5 space-y-3 text-sm text-white/50">
-                <li className="flex items-center justify-center gap-2 md:justify-start">
-                  <span className="text-white/30">Entity:</span>
-                  <span className="text-white/60">Zyvox Automations</span>
-                </li>
-                <li className="flex items-center justify-center gap-2 md:justify-start">
-                  <span className="text-white/30">Type:</span>
-                  <span className="text-white/60">Sole Proprietorship</span>
-                </li>
-                <li className="flex items-center justify-center gap-2 md:justify-start">
-                  <span className="text-white/30">UDYAM:</span>
-                  <span className="font-mono text-xs text-white/60">UDYAM-UD-56-0161699</span>
-                </li>
-                <li className="flex items-center justify-center gap-2 md:justify-start">
-                  <span className="text-white/30">Markets:</span>
-                  <span className="text-white/60">India & Australia</span>
-                </li>
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#001F3F]">Legal</h3>
+              <ul className="mt-4 space-y-2 text-sm text-[#001F3F]/70">
+                <li><NavLink to="/privacy" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Privacy Policy</NavLink></li>
+                <li><NavLink to="/terms" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Terms of Service</NavLink></li>
+                <li><NavLink to="/cookies" className="transition-colors hover:text-[#001F3F] hover:font-semibold">Cookie Policy</NavLink></li>
               </ul>
             </div>
 
             {/* Connect */}
             <div>
-              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">Connect</h3>
-              <div className="mt-5 inline-flex items-center gap-3">
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#001F3F]">Connect</h3>
+              <div className="mt-4 inline-flex items-center gap-3">
                 <a
                   href="https://www.linkedin.com/company/zyvox-ai/"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#001F3F] shadow-sm transition-all hover:bg-[#001F3F] hover:text-white"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-4 w-4" />
                 </a>
                 <a
                   href="mailto:hello@zyvoxautomations.com"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#001F3F] shadow-sm transition-all hover:bg-[#001F3F] hover:text-white"
                   aria-label="Email"
                 >
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-4 w-4" />
                 </a>
                 <a
-                  href="tel:+10000000000"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-white/50 transition-all hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]"
+                  href="tel:+917078061233"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#001F3F] shadow-sm transition-all hover:bg-[#001F3F] hover:text-white"
                   aria-label="Phone"
                 >
-                  <Phone className="h-5 w-5" />
+                  <Phone className="h-4 w-4" />
                 </a>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Bottom bar */}
-          <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
-            <span className="font-sans text-xs text-white/25">
+        {/* Bottom bar */}
+        <div className="bg-[#EAD8C0] py-4">
+          <div className="mx-auto max-w-[1440px] px-6 sm:px-8 flex justify-center text-center">
+            <span className="font-sans text-xs text-[#001F3F]/80">
               © {new Date().getFullYear()} Zyvox Automations. All rights reserved.
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/15">
-              Enterprise Infrastructure · India & Australia
             </span>
           </div>
         </div>
