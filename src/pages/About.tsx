@@ -42,7 +42,7 @@ const founders = [
     initials: "KZ",
     image: "/images/kunwar-zaid.jpg",
     linkedin: "https://www.linkedin.com/in/kunwarzaid-zyvox",
-    bio: "Leads Zyvox's strategic vision and enterprise partnerships across India and Australia.",
+    bio: "Leads Zyvox's strategic vision and enterprise partnerships globally.",
   },
   {
     name: "Vijayant Singh",
@@ -95,7 +95,7 @@ const About = () => {
   usePageMeta({
     title: "Zyvox Automations | About",
     description:
-      "Discover the enterprise-grade AI automation infrastructure powering the next generation of businesses in India and Australia.",
+      "Discover the enterprise-grade AI automation infrastructure powering the next generation of businesses globally.",
     path: "/about",
   });
 
@@ -118,9 +118,8 @@ const About = () => {
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg">
             Zyvox Automations is an enterprise-grade AI partner dedicated to
-            mid-market and scaling businesses in{" "}
-            <span className="font-semibold text-foreground">India</span> and{" "}
-            <span className="font-semibold text-foreground">Australia</span>.
+            mid-market and scaling businesses{" "}
+            <span className="font-semibold text-foreground">globally</span>.
             We build reliable, measurable communication and operational systems
             — so you can focus on growth.
           </p>
