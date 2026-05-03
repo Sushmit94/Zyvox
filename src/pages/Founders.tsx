@@ -4,10 +4,12 @@ const founders = [
   {
     name: "Lokik Ganeriwal",
     role: "Co-Founder",
+    image: "/images/lokik.jpg",
   },
   {
     name: "Vijayant Singh",
     role: "Co-Founder",
+    image: "/images/vinnayat.jpg",
   },
   {
     name: "Kunwar Zaid",
