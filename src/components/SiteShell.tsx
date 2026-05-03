@@ -25,7 +25,7 @@ const SiteShell = () => {
     <div className="min-h-screen bg-background text-foreground">
       {/* ── Glassmorphism Navbar ──────────────────────────────── */}
       <header className="sticky top-0 z-50 glass-nav">
-        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 sm:px-8 md:h-20">
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-center md:justify-between px-6 sm:px-8 md:h-20 relative">
           <NavLink to="/" className="flex items-center" onClick={() => setOpen(false)}>
             <div className="flex h-10 w-44 items-center justify-center rounded-md sm:h-12 sm:w-56 md:h-14 md:w-72">
               <img src="/images/logo.png" alt="Zyvox Automations" className="h-full w-full object-contain scale-[1.35] origin-center mix-blend-multiply" />
@@ -44,7 +44,7 @@ const SiteShell = () => {
             Contact Us
           </NavLink>
 
-          <button className="md:hidden" onClick={() => setOpen((prev) => !prev)} aria-label="Toggle menu">
+          <button className="absolute right-6 md:static md:hidden" onClick={() => setOpen((prev) => !prev)} aria-label="Toggle menu">
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -77,8 +77,8 @@ const SiteShell = () => {
             {/* Newsletter */}
             <div className="lg:col-span-2">
               <div className="mx-auto max-w-sm md:mx-0">
-                <h4 className="text-sm font-bold text-[#001F3F]">Subscribe to news updates*</h4>
-                <form className="mt-3 flex flex-col gap-2.5 text-left" onSubmit={(e) => e.preventDefault()}>
+                <h4 className="text-sm font-bold text-[#001F3F] text-center md:text-left">Subscribe to news updates*</h4>
+                <form className="mt-3 flex flex-col gap-2.5 text-center md:text-left" onSubmit={(e) => e.preventDefault()}>
                   <input 
                     type="email" 
                     placeholder="Your email address" 
@@ -90,7 +90,7 @@ const SiteShell = () => {
                   </p>
                   <button 
                     type="submit" 
-                    className="mt-1 inline-flex w-fit items-center justify-center gap-2 rounded-md bg-[#001F3F] px-5 py-2 text-xs font-bold tracking-[0.1em] text-white transition-all hover:bg-[#001F3F]/80 active:scale-95 md:justify-start"
+                    className="mt-1 inline-flex w-fit items-center justify-center gap-2 rounded-md bg-[#001F3F] px-5 py-2 text-xs font-bold tracking-[0.1em] text-white transition-all hover:bg-[#001F3F]/80 active:scale-95 mx-auto md:mx-0 md:justify-start"
                   >
                     SUBSCRIBE →
                   </button>
