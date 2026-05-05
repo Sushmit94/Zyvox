@@ -3,6 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
+  
   return (
     <section id="about" className="py-20 md:py-28">
       <div ref={ref} className={`container max-w-3xl scroll-fade-in ${isVisible ? "visible" : ""}`}>
